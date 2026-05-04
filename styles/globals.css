@@ -108,9 +108,12 @@
 
 /* ---------- Type tokens ---------- */
 :root {
-  /* Font families — provided by next/font/google variables applied to <html> */
-  --font-serif: var(--np-font-serif, 'Noto Serif', Georgia, 'Times New Roman', serif);
-  --font-sans:  var(--np-font-sans, 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  /* Font families — provided by next/font/google variables applied to <html>.
+     Latin/Cyrillic glyphs come from Noto Serif/Sans; the browser falls through
+     to the Georgian variants for ქართული characters because the Latin/Cyrillic
+     subsets don't include Georgian glyphs. */
+  --font-serif: var(--font-noto-serif, 'Noto Serif'), var(--font-noto-serif-georgian, 'Noto Serif Georgian'), Georgia, 'Times New Roman', serif;
+  --font-sans:  var(--font-noto-sans, 'Noto Sans'), var(--font-noto-sans-georgian, 'Noto Sans Georgian'), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono:  ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
 
   --fs-display: clamp(2.5rem, 4.5vw + 1rem, 4rem);
