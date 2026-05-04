@@ -1,11 +1,23 @@
+import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import { notFound } from 'next/navigation';
 import { LANGS, isLang, type Lang } from '@/lib/i18n';
+import { buildPageMetadata } from '@/lib/seo';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 
 export function generateStaticParams() {
   return LANGS.map((lang) => ({ lang }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  if (!isLang(lang)) return {};
+  return buildPageMetadata({ lang: lang as Lang, page: 'home' });
 }
 
 export default async function LangLayout({

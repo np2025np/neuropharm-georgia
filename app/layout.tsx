@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import { Noto_Serif, Noto_Sans, Noto_Serif_Georgian, Noto_Sans_Georgian } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { SITE_NAME, SITE_TITLES, SITE_URL, TAGLINES } from '@/lib/seo';
 import '@/styles/globals.css';
 import '@/styles/homepage.css';
 import '@/styles/pages.css';
@@ -36,9 +37,21 @@ const notoSansGeorgian = Noto_Sans_Georgian({
 });
 
 export const metadata: Metadata = {
-  title: 'Neuropharm Georgia — Pharmaceutical Import & Distribution',
-  description:
-    'Neuropharm Georgia LLC — pharmaceutical importer and distributor in Tbilisi, Georgia. European and Indian medicines under EU-GMP standards. Founded 2025. License №438739260.',
+  metadataBase: new URL(SITE_URL),
+  title: SITE_TITLES.ka,
+  description: TAGLINES.ka,
+  applicationName: SITE_NAME,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
 };
 
 const themeInitScript = `
