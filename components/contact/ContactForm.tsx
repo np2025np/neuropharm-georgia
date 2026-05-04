@@ -1,45 +1,77 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState, type FormEvent } from 'react';
 import type { PagesT } from '@/lib/i18n';
 import { ArrowRight } from '@/components/icons';
 
 type ContactT = PagesT['contact'];
+type Status = 'idle' | 'submitting' | 'success' | 'error';
 
 export function ContactForm({ t }: { t: ContactT }) {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<Status>('idle');
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (status === 'submitting') return;
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const payload = {
+      name: String(data.get('name') ?? ''),
+      company: String(data.get('company') ?? ''),
+      email: String(data.get('email') ?? ''),
+      phone: String(data.get('phone') ?? ''),
+      serviceType: String(data.get('serviceType') ?? ''),
+      message: String(data.get('message') ?? ''),
+      website: String(data.get('website') ?? ''),
+    };
+
+    setStatus('submitting');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) {
+        setStatus('error');
+        return;
+      }
+      setStatus('success');
+      form.reset();
+    } catch {
+      setStatus('error');
+    }
+  };
+
+  const submitting = status === 'submitting';
 
   return (
-    <form
-      className="np-contact-form"
-      onSubmit={(e) => {
-        e.preventDefault();
-        setSubmitted(true);
-      }}
-    >
+    <form ref={formRef} className="np-contact-form" onSubmit={onSubmit} noValidate>
       <div className="row two">
         <label>
           <span>{t.form.name}</span>
-          <input type="text" required />
+          <input type="text" name="name" required maxLength={200} disabled={submitting} />
         </label>
         <label>
           <span>{t.form.company}</span>
-          <input type="text" />
+          <input type="text" name="company" maxLength={200} disabled={submitting} />
         </label>
       </div>
       <div className="row two">
         <label>
           <span>{t.form.email}</span>
-          <input type="email" required />
+          <input type="email" name="email" required maxLength={254} disabled={submitting} />
         </label>
         <label>
           <span>{t.form.phone}</span>
-          <input type="tel" />
+          <input type="tel" name="phone" maxLength={50} disabled={submitting} />
         </label>
       </div>
       <label>
         <span>{t.form.serviceLabel}</span>
-        <select defaultValue="">
+        <select name="serviceType" defaultValue="" disabled={submitting}>
           <option value="" disabled>{t.form.servicePlaceholder}</option>
           {t.form.services.map((s, i) => (
             <option key={i} value={s}>{s}</option>
@@ -48,15 +80,25 @@ export function ContactForm({ t }: { t: ContactT }) {
       </label>
       <label>
         <span>{t.form.message}</span>
-        <textarea rows={5} required />
+        <textarea name="message" rows={5} required maxLength={5000} disabled={submitting} />
       </label>
+
+      {/* Honeypot — hidden from users, filled by bots. Real submissions leave this empty. */}
+      <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, overflow: 'hidden' }}>
+        <label>
+          Website
+          <input type="text" name="website" tabIndex={-1} autoComplete="off" />
+        </label>
+      </div>
+
       <p className="consent">{t.form.consent}</p>
       <div className="actions">
-        <button type="submit" className="np-btn np-btn-primary np-btn-lg">
-          {t.form.submit}
+        <button type="submit" className="np-btn np-btn-primary np-btn-lg" disabled={submitting}>
+          {submitting ? t.form.submitting : t.form.submit}
           <span className="np-btn-icon"><ArrowRight /></span>
         </button>
-        {submitted && <span className="submitted">✓</span>}
+        {status === 'success' && <span className="form-msg form-msg-success">{t.form.success}</span>}
+        {status === 'error' && <span className="form-msg form-msg-error">{t.form.error}</span>}
       </div>
     </form>
   );

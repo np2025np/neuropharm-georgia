@@ -39,7 +39,8 @@ export type PagesT = {
     form: {
       name: string; company: string; email: string; phone: string;
       serviceLabel: string; servicePlaceholder: string; services: string[];
-      message: string; submit: string; consent: string;
+      message: string; submit: string; submitting: string; consent: string;
+      success: string; error: string;
     };
     info: {
       title: string; addressLabel: string; address: string;
