@@ -8,6 +8,12 @@ import { WorldMap } from '@/components/visuals/WorldMap';
 export function HomeHero({ t, lang }: { t: HomeT; lang: Lang }) {
   return (
     <section id="home" className="np-home-hero" data-screen-label="01 Hero">
+      <picture className="np-home-hero-bg">
+        <source media="(max-width: 767px)" srcSet="/hero-bg-mobile.jpg" />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/hero-bg.jpg" alt="" fetchPriority="high" decoding="async" />
+      </picture>
+      <div className="np-home-hero-overlay" />
       <div className="np-home-hero-grid">
         <div>
           <BracketedEyebrow color="var(--accent)">{t.hero.eyebrow}</BracketedEyebrow>

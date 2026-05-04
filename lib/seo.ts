@@ -3,7 +3,8 @@ import { LANGS, type Lang } from './i18n';
 
 export const SITE_URL = 'https://neuropharmgeorgia.com';
 export const SITE_NAME = 'Neuropharm Georgia';
-export const OG_IMAGE = '/og-image.png';
+export const OG_IMAGE = '/og-image.jpg';
+export const OG_IMAGE_TYPE = 'image/jpeg';
 
 export const LOCALE_TAG: Record<Lang, string> = {
   ka: 'ka_GE',
@@ -70,6 +71,22 @@ export const KEYWORDS: Record<Lang, string[]> = {
 };
 
 export type PageId = 'home' | 'about' | 'services' | 'sourcing' | 'quality' | 'news' | 'contact';
+
+/** Short locale-aware subtitles shown under the page banner title on inner pages. */
+export const BANNER_SUBTITLES: Partial<Record<PageId, Record<Lang, string>>> = {
+  about: {
+    ka: 'ჩვენი ისტორია, მისია და ხედვა',
+    en: 'Our story, mission, and vision',
+    ru: 'Наша история, миссия и видение',
+    pt: 'Nossa história, missão e visão',
+  },
+  sourcing: {
+    ka: 'ევროპა და ინდოეთი — ხარისხის სტანდარტი',
+    en: 'Europe and India — quality standard',
+    ru: 'Европа и Индия — стандарт качества',
+    pt: 'Europa e Índia — padrão de qualidade',
+  },
+};
 
 export const PAGE_TITLES: Record<Exclude<PageId, 'home'>, Record<Lang, string>> = {
   about: { ka: 'ჩვენ შესახებ', en: 'About Us', ru: 'О нас', pt: 'Sobre Nós' },
@@ -140,7 +157,7 @@ export function buildPageMetadata({
       url: canonical,
       locale: LOCALE_TAG[lang],
       alternateLocale: alternateLocales,
-      images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: SITE_NAME }],
+      images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: SITE_NAME, type: OG_IMAGE_TYPE }],
     },
     twitter: {
       card: 'summary_large_image',

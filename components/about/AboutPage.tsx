@@ -1,6 +1,8 @@
-import type { PagesT } from '@/lib/i18n';
+import type { Lang, PagesT } from '@/lib/i18n';
 import { BracketedEyebrow } from '@/components/Primitives';
 import { PageHero } from '@/components/PageHero';
+import { PageBanner } from '@/components/PageBanner';
+import { BANNER_SUBTITLES, PAGE_TITLES } from '@/lib/seo';
 
 type AboutT = PagesT['about'];
 
@@ -124,9 +126,10 @@ function ComplianceTable({ pT }: { pT: AboutT['compliance'] }) {
   );
 }
 
-export function AboutPage({ pT }: { pT: AboutT }) {
+export function AboutPage({ pT, lang }: { pT: AboutT; lang: Lang }) {
   return (
     <main>
+      <PageBanner title={PAGE_TITLES.about[lang]} subtitle={BANNER_SUBTITLES.about?.[lang]} />
       <PageHero eyebrow={pT.eyebrow} headline={pT.headline} sub={pT.sub} />
       <AboutStory pT={pT} />
       <AboutMission pT={pT} />

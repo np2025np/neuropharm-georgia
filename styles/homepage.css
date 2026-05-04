@@ -106,66 +106,109 @@
   padding: 88px 32px 96px;
   max-width: var(--container-wide);
   margin: 0 auto;
+  isolation: isolate;
+}
+/* Full-bleed photographic background — molecular imagery, art-directed per breakpoint via <picture media>. */
+.np-home-hero-bg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  max-width: 100vw;
+  z-index: 0;
+  pointer-events: none;
+  display: block;
+  overflow: hidden;
+}
+.np-home-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.np-home-hero-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    to right,
+    rgba(15, 35, 30, 0.92) 0%,
+    rgba(15, 35, 30, 0.78) 38%,
+    rgba(15, 35, 30, 0.45) 80%,
+    rgba(15, 35, 30, 0.40) 100%
+  );
 }
 .np-home-hero-grid {
+  position: relative;
+  z-index: 2;
   display: grid;
   grid-template-columns: 6fr 5fr;
   gap: 72px;
   align-items: center;
 }
-.np-home-hero h1 {
+/* Hero is always dark (photographic bg + dark overlay) regardless of site theme. */
+.np-home-hero h1,
+:root[data-theme="dark"] .np-home-hero h1 {
   font-family: var(--font-serif);
   font-size: clamp(2.5rem, 4.2vw + 1rem, 4rem);
   font-weight: 700;
   line-height: 1.12;
   letter-spacing: -0.012em;
-  color: var(--brand);
+  color: var(--fg-on-brand);
   margin: 24px 0 24px;
   text-wrap: balance;
 }
-:root[data-theme="dark"] .np-home-hero h1 { color: var(--fg); }
-.np-home-hero p.lead {
+.np-home-hero p.lead,
+:root[data-theme="dark"] .np-home-hero p.lead {
   font-family: var(--font-sans);
   font-size: 19px;
   line-height: 1.6;
-  color: var(--fg-muted);
+  color: rgba(250, 250, 247, 0.86);
   margin: 0 0 36px;
   max-width: 56ch;
 }
 .np-home-hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
-.np-home-hero-art {
+.np-home-hero-art,
+:root[data-theme="dark"] .np-home-hero-art {
   position: relative;
   aspect-ratio: 5 / 6;
-  background: var(--brand-soft);
+  background: rgba(11, 31, 29, 0.42);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
   border-radius: 16px;
-  border: 1px solid var(--border);
+  border: 1px solid rgba(143, 174, 169, 0.28);
   overflow: hidden;
-}
-:root[data-theme="dark"] .np-home-hero-art {
-  background: linear-gradient(160deg, #122E2B, #0B1F1D);
 }
 .np-home-hero-art .grid-bg {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(to right, var(--brand) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--brand) 1px, transparent 1px);
+    linear-gradient(to right, rgba(143, 174, 169, 0.55) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(143, 174, 169, 0.55) 1px, transparent 1px);
   background-size: 48px 48px;
-  opacity: 0.05;
+  opacity: 0.10;
   pointer-events: none;
 }
 .np-home-hero-art svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-.np-home-hero-art .art-caption {
+.np-home-hero-art .art-caption,
+:root[data-theme="dark"] .np-home-hero-art .art-caption {
   position: absolute;
   left: 24px; bottom: 24px;
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--brand);
-  opacity: 0.7;
+  color: rgba(250, 250, 247, 0.82);
+  opacity: 1;
 }
-:root[data-theme="dark"] .np-home-hero-art .art-caption { color: var(--fg); }
 
 /* Trust strip */
 .np-trust-strip {

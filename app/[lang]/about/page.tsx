@@ -18,6 +18,7 @@ export async function generateMetadata({
 export default async function About({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   if (!isLang(lang)) notFound();
-  const pT = pagesT[lang as Lang].about;
-  return <AboutPage pT={pT} />;
+  const typed = lang as Lang;
+  const pT = pagesT[typed].about;
+  return <AboutPage pT={pT} lang={typed} />;
 }

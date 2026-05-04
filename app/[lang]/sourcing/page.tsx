@@ -20,5 +20,5 @@ export default async function Sourcing({ params }: { params: Promise<{ lang: str
   if (!isLang(lang)) notFound();
   const typed = lang as Lang;
   const data = pagesT[typed];
-  return <SourcingPage pT={data.sourcing} labels={data.labels} t={homeT[typed]} />;
+  return <SourcingPage pT={data.sourcing} labels={data.labels} t={homeT[typed]} lang={typed} />;
 }

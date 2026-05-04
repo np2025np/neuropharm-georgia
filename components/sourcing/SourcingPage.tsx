@@ -1,8 +1,10 @@
-import type { HomeT, PagesT } from '@/lib/i18n';
+import type { HomeT, Lang, PagesT } from '@/lib/i18n';
 import { BracketedEyebrow } from '@/components/Primitives';
 import { PageHero } from '@/components/PageHero';
+import { PageBanner } from '@/components/PageBanner';
 import { Check } from '@/components/icons';
 import { WorldMap } from '@/components/visuals/WorldMap';
+import { BANNER_SUBTITLES, PAGE_TITLES } from '@/lib/seo';
 
 type SourcingT = PagesT['sourcing'];
 type Labels = PagesT['labels'];
@@ -86,9 +88,20 @@ function SourcingFutureNote({ pT }: { pT: SourcingT['future'] }) {
   );
 }
 
-export function SourcingPage({ pT, labels, t }: { pT: SourcingT; labels: Labels; t: HomeT }) {
+export function SourcingPage({
+  pT,
+  labels,
+  t,
+  lang,
+}: {
+  pT: SourcingT;
+  labels: Labels;
+  t: HomeT;
+  lang: Lang;
+}) {
   return (
     <main>
+      <PageBanner title={PAGE_TITLES.sourcing[lang]} subtitle={BANNER_SUBTITLES.sourcing?.[lang]} />
       <PageHero eyebrow={pT.eyebrow} headline={pT.headline} sub={pT.sub} />
       <SourcingHeroMap pT={pT} t={t} />
       <SourcingRegion pT={pT.regionA} labels={labels} />
