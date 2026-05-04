@@ -51,8 +51,8 @@ export type PagesT = {
   };
   about: {
     eyebrow: string; headline: string; sub: string;
-    story: { eyebrow: string; title: string; p1: string; p2: string };
-    mission: { eyebrow: string; title: string; body: string; models: { num: string; title: string; body: string }[] };
+    story: { eyebrow: string; title: string; p1: string; p2: string; p3: string };
+    mission: { eyebrow: string; title: string; body: string; models: { num: string; title: string; body: string; cta?: string }[] };
     foundedCallout: { eyebrow: string; title: string; license: string; body: string };
     vision: { eyebrow: string; title: string; body: string };
     leadership: { eyebrow: string; title: string; sub: string; members: { role: string; name: string }[] };

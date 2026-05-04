@@ -28,19 +28,35 @@ export const pagesT: Record<Lang, PagesT> = {
     },
     about: {
       eyebrow: 'ჩვენ შესახებ',
-      headline: 'ფარმაცევტული საიმედოობა, ქართული გუნდით',
-      sub: 'Neuropharm Georgia LLC დაფუძნდა 2025 წელს ერთი მკაფიო პრინციპით — ხარისხიანი მედიკამენტების მოწოდება საქართველოს ბაზარზე ზუსტი რეგულატორული მოთხოვნების დაცვით.',
+      headline: 'ფარმაცევტული სანდოობა, ქართულ გუნდთან ერთად',
+      sub: 'Neuropharm Georgia LLC დაარსდა ერთი მკაფიო პრინციპით — უზრუნველყოს საქართველოს ბაზარი მაღალი ხარისხის მედიკამენტებით, რეგულატორული მოთხოვნების სრულ დაცვასთან ერთად.',
       story: {
         eyebrow: '01 — ისტორია', title: 'როგორ დავიწყეთ',
-        p1: 'Neuropharm Georgia LLC ჩამოყალიბდა 2025 წელს თბილისში, როგორც პასუხი ქართული ფარმაცევტული ბაზრის კონკრეტულ საჭიროებაზე — საიმედო, რეგულატორულად სწორი იმპორტი ევროპული და ინდური წარმოებიდან.',
-        p2: 'ჩვენი გუნდი აერთიანებს ფარმაცევტული ლოჯისტიკის, რეგულირების და ბიზნეს განვითარების გამოცდილებას. ვმუშაობთ ფარმაციებთან, საავადმყოფოებთან და კლინიკურ ცენტრებთან, რათა შევქმნათ ერთიანი, გამჭვირვალე მომარაგების ჯაჭვი.',
+        p1: 'ჩვენი მთავარი პრიორიტეტია იმ მედიკამენტების შემოტანა და დისტრიბუცია, რომლებიც წარმოებულია EU GMP სერტიფიცირებული სტანდარტების შესაბამისად — როგორც დასრულებული ფარმაცევტული პროდუქტის (Finished Product), ასევე აქტიური ფარმაცევტული ინგრედიენტების (API) დონეზე.',
+        p2: 'ჩვენ ვთანამშრომლობთ საერთაშორისო მწარმოებლებთან, რომლებიც აკმაყოფილებენ ევროკავშირის ხარისხის მკაცრ მოთხოვნებს, რაც უზრუნველყოფს პროდუქციის უსაფრთხოებას, ეფექტურობასა და სრულ შესაბამისობას რეგულაციებთან.',
+        p3: 'ნეიროფარმ ჯორჯიას მიზანია გახდეს სანდო ხიდი გლობალურ ფარმაცევტულ ხარისხსა და ადგილობრივ ბაზარს შორის, და ხელი შეუწყოს მაღალი სტანდარტების მედიკამენტების ხელმისაწვდომობას რეგიონში.',
       },
       mission: {
-        eyebrow: '02 — მისია', title: 'ერთი სტანდარტი, ორი მოდელი',
-        body: 'ჩვენი მიზანია, რომ ხარისხიანი მედიკამენტი ხელმისაწვდომი იყოს ყოველი ქართული ფარმაცევტული პარტნიორისთვის — განურჩევლად მისი ზომისა. ამისთვის გვაქვს ორი მომსახურების ფორმატი, ერთი და იგივე ხარისხის სტანდარტით.',
+        eyebrow: '02 — მისია',
+        title: 'სრული, ბოლომდე ინტეგრირებული მომსახურება — წარმოებიდან ფარმაციის თაროებამდე',
+        body: 'ჩვენ ვაერთიანებთ მიწოდების ჯაჭვის ყველა ეტაპს ერთ სისტემაში, რათა უზრუნველვყოთ ხარისხი, უწყვეტობა და ოპერაციული სიმარტივე.',
         models: [
-          { num: '01', title: 'იმპორტი საბაჟომდე', body: 'ლოჯისტიკა და დოკუმენტაცია — დისტრიბუცია რჩება პარტნიორის გუნდს.' },
-          { num: '02', title: 'იმპორტი + დისტრიბუცია', body: 'სრული მომსახურება — საწყობიდან ფარმაციამდე.' },
+          {
+            num: '01',
+            title: 'საერთაშორისო ფარმაცევტული კომპანიებისთვის',
+            body: 'თუ თქვენ გეგმავთ ქართულ ბაზარზე შემოსვლას, გთავაზობთ სრულ მხარდაჭერას — რეგისტრაციიდან და რეგულატორული პროცესებიდან დაწყებული, ლოგისტიკითა და დისტრიბუციით დამთავრებული. ჩვენ ვმოქმედებთ როგორც თქვენი ადგილობრივი წარმომადგენელი და საიმედო გზამკვლევი ბაზარზე ეფექტიანი შესვლისთვის.',
+          },
+          {
+            num: '02',
+            title: 'ადგილობრივი ბაზრისთვის',
+            body: 'აფთიაქების ქსელებს, საავადმყოფოებსა და კლინიკურ ცენტრებს ვთავაზობთ ერთიანი, სტაბილური და ეფექტიანი მომარაგების მოდელს ერთი წყაროდან. ჩვენი სისტემა უზრუნველყოფს ოპტიმიზებულ პროცესებს, უწყვეტ მიწოდებას და მაღალი ხარისხის პროდუქციის ხელმისაწვდომობას.',
+          },
+          {
+            num: '03',
+            title: 'გახდით ჩვენი პარტნიორი',
+            body: 'გვითხარით თქვენი საჭიროებები და ჩვენ შევიმუშავებთ თქვენზე მორგებულ, უწყვეტ და საიმედო მომარაგების სქემას.',
+            cta: 'დაგვიკავშირდით',
+          },
         ],
       },
       foundedCallout: {
@@ -179,19 +195,35 @@ export const pagesT: Record<Lang, PagesT> = {
       mapCaption: 'Map — Tbilisi',
     },
     about: {
-      eyebrow: 'About us', headline: 'Pharmaceutical reliability, with a Georgian team',
-      sub: 'Neuropharm Georgia LLC was founded in 2025 with a single clear principle — to bring quality medicines to the Georgian market under strict regulatory compliance.',
+      eyebrow: 'About us', headline: 'Pharmaceutical Reliability with a Georgian Team',
+      sub: 'Neuropharm Georgia LLC was founded with a single clear principle — to supply the Georgian market with high-quality medicines while fully complying with regulatory requirements.',
       story: {
         eyebrow: '01 — Story', title: 'How we started',
-        p1: 'Neuropharm Georgia LLC was established in 2025 in Tbilisi, in response to a specific need in the Georgian pharmaceutical market — reliable, regulatorily-correct imports from European and Indian manufacturers.',
-        p2: 'Our team brings together pharmaceutical logistics, regulatory affairs, and business development experience. We work with pharmacies, hospitals, and clinical centres to build a single, transparent supply chain.',
+        p1: 'Our top priority is the import and distribution of medicines manufactured in accordance with EU GMP-certified standards — at both the Finished Product and Active Pharmaceutical Ingredient (API) levels.',
+        p2: "We collaborate with international manufacturers who meet the European Union's strict quality requirements, ensuring the safety, efficacy, and full regulatory compliance of every product.",
+        p3: "Neuropharm Georgia's mission is to become a trusted bridge between global pharmaceutical quality and the local market, advancing access to high-standard medicines across the region.",
       },
       mission: {
-        eyebrow: '02 — Mission', title: 'One standard, two models',
-        body: 'Our goal is to make quality medicines accessible to every Georgian pharmaceutical partner — regardless of size. To do this, we offer two service formats with the same quality standard.',
+        eyebrow: '02 — Mission',
+        title: 'Complete, Fully Integrated Service — From Manufacturing to Pharmacy Shelves',
+        body: 'We unite every stage of the supply chain into a single system to deliver quality, continuity, and operational simplicity.',
         models: [
-          { num: '01', title: 'Import to customs', body: 'Logistics and documentation — distribution stays with the partner.' },
-          { num: '02', title: 'Import + distribution', body: 'Full service — from warehouse to pharmacy.' },
+          {
+            num: '01',
+            title: 'For International Pharmaceutical Companies',
+            body: "If you're planning to enter the Georgian market, we offer comprehensive support — from registration and regulatory processes to logistics and distribution. We act as your local representative and trusted guide for effective market entry.",
+          },
+          {
+            num: '02',
+            title: 'For the Local Market',
+            body: 'We offer pharmacy chains, hospitals, and clinical centers a unified, stable, and efficient supply model from a single source. Our system delivers optimized processes, uninterrupted distribution, and consistent access to high-quality products.',
+          },
+          {
+            num: '03',
+            title: 'Become Our Partner',
+            body: "Tell us your needs and we'll design a tailored, continuous, and reliable supply scheme built around your business.",
+            cta: 'Get in Touch',
+          },
         ],
       },
       foundedCallout: {
@@ -330,19 +362,35 @@ export const pagesT: Record<Lang, PagesT> = {
       mapCaption: 'Карта — Тбилиси',
     },
     about: {
-      eyebrow: 'О нас', headline: 'Фармацевтическая надёжность, с грузинской командой',
-      sub: 'Neuropharm Georgia LLC основано в 2025 году с одним чётким принципом — поставлять на грузинский рынок качественные лекарства при строгом регуляторном соответствии.',
+      eyebrow: 'О нас', headline: 'Фармацевтическая надёжность с грузинской командой',
+      sub: 'Neuropharm Georgia LLC основана с одним ясным принципом — обеспечивать грузинский рынок высококачественными медикаментами при полном соблюдении регуляторных требований.',
       story: {
         eyebrow: '01 — История', title: 'Как мы начали',
-        p1: 'Neuropharm Georgia LLC было создано в 2025 году в Тбилиси в ответ на конкретную потребность грузинского фармацевтического рынка — надёжный, регуляторно-корректный импорт от европейских и индийских производителей.',
-        p2: 'Наша команда объединяет опыт в фармацевтической логистике, регуляторных вопросах и развитии бизнеса. Мы работаем с аптеками, больницами и клиническими центрами, чтобы построить единую, прозрачную цепочку поставок.',
+        p1: 'Наш главный приоритет — импорт и дистрибуция медикаментов, произведённых в соответствии со стандартами EU GMP, как на уровне готового фармацевтического продукта (Finished Product), так и активных фармацевтических ингредиентов (API).',
+        p2: 'Мы сотрудничаем с международными производителями, отвечающими строгим требованиям качества Европейского Союза, что обеспечивает безопасность, эффективность и полное регуляторное соответствие каждого продукта.',
+        p3: 'Миссия Neuropharm Georgia — стать надёжным мостом между глобальным фармацевтическим качеством и локальным рынком, способствуя доступу к высокостандартным медикаментам в регионе.',
       },
       mission: {
-        eyebrow: '02 — Миссия', title: 'Один стандарт, две модели',
-        body: 'Наша цель — сделать качественные лекарства доступными для каждого грузинского фармацевтического партнёра — независимо от размера. Для этого у нас есть два формата услуг с одинаковым стандартом качества.',
+        eyebrow: '02 — Миссия',
+        title: 'Полный, полностью интегрированный сервис — от производства до полок аптек',
+        body: 'Мы объединяем все этапы цепочки поставок в единую систему, чтобы обеспечить качество, непрерывность и операционную простоту.',
         models: [
-          { num: '01', title: 'Импорт до таможни', body: 'Логистика и документация — дистрибуция остаётся за партнёром.' },
-          { num: '02', title: 'Импорт + дистрибуция', body: 'Полный сервис — от склада до аптеки.' },
+          {
+            num: '01',
+            title: 'Для международных фармацевтических компаний',
+            body: 'Если вы планируете выход на грузинский рынок, мы предлагаем полную поддержку — от регистрации и регуляторных процессов до логистики и дистрибуции. Мы действуем как ваш локальный представитель и надёжный проводник для эффективного выхода на рынок.',
+          },
+          {
+            num: '02',
+            title: 'Для локального рынка',
+            body: 'Аптечным сетям, больницам и клиническим центрам мы предлагаем единую, стабильную и эффективную модель поставок из одного источника. Наша система обеспечивает оптимизированные процессы, бесперебойную дистрибуцию и доступ к высококачественной продукции.',
+          },
+          {
+            num: '03',
+            title: 'Станьте нашим партнёром',
+            body: 'Расскажите о ваших потребностях, и мы разработаем индивидуальную, непрерывную и надёжную схему поставок под ваш бизнес.',
+            cta: 'Связаться с нами',
+          },
         ],
       },
       foundedCallout: {
@@ -481,19 +529,35 @@ export const pagesT: Record<Lang, PagesT> = {
       mapCaption: 'Mapa — Tbilisi',
     },
     about: {
-      eyebrow: 'Sobre nós', headline: 'Confiabilidade farmacêutica, com equipe georgiana',
-      sub: 'A Neuropharm Georgia LLC foi fundada em 2025 com um princípio claro — levar medicamentos de qualidade ao mercado georgiano sob rigorosa conformidade regulatória.',
+      eyebrow: 'Sobre nós', headline: 'Confiabilidade Farmacêutica com Equipa Georgiana',
+      sub: 'A Neuropharm Georgia LLC foi fundada com um princípio claro — abastecer o mercado georgiano com medicamentos de alta qualidade em total conformidade com os requisitos regulamentares.',
       story: {
         eyebrow: '01 — História', title: 'Como começamos',
-        p1: 'A Neuropharm Georgia LLC foi criada em 2025 em Tbilisi, em resposta a uma necessidade específica do mercado farmacêutico georgiano — importação confiável e regulatoriamente correta de fabricantes europeus e indianos.',
-        p2: 'Nossa equipe combina experiência em logística farmacêutica, assuntos regulatórios e desenvolvimento de negócios. Trabalhamos com farmácias, hospitais e centros clínicos para construir uma cadeia de suprimentos única e transparente.',
+        p1: 'A nossa prioridade principal é a importação e distribuição de medicamentos fabricados em conformidade com os padrões EU GMP certificados — tanto a nível de Produto Farmacêutico Acabado (Finished Product) como de Ingredientes Farmacêuticos Ativos (API).',
+        p2: 'Colaboramos com fabricantes internacionais que cumprem os rigorosos requisitos de qualidade da União Europeia, garantindo a segurança, eficácia e plena conformidade regulamentar de cada produto.',
+        p3: 'A missão da Neuropharm Georgia é tornar-se uma ponte confiável entre a qualidade farmacêutica global e o mercado local, promovendo o acesso a medicamentos de alto padrão na região.',
       },
       mission: {
-        eyebrow: '02 — Missão', title: 'Um padrão, dois modelos',
-        body: 'Nosso objetivo é tornar medicamentos de qualidade acessíveis a cada parceiro farmacêutico georgiano — independentemente do tamanho. Para isso, oferecemos dois formatos de serviço com o mesmo padrão de qualidade.',
+        eyebrow: '02 — Missão',
+        title: 'Serviço Completo e Totalmente Integrado — Da Produção às Prateleiras das Farmácias',
+        body: 'Unimos todas as etapas da cadeia de abastecimento num sistema único para garantir qualidade, continuidade e simplicidade operacional.',
         models: [
-          { num: '01', title: 'Importação até a alfândega', body: 'Logística e documentação — a distribuição fica com o parceiro.' },
-          { num: '02', title: 'Importação + distribuição', body: 'Serviço completo — do armazém à farmácia.' },
+          {
+            num: '01',
+            title: 'Para Empresas Farmacêuticas Internacionais',
+            body: 'Se planeia entrar no mercado georgiano, oferecemos apoio completo — desde o registo e processos regulamentares até à logística e distribuição. Atuamos como o seu representante local e guia de confiança para uma entrada eficaz no mercado.',
+          },
+          {
+            num: '02',
+            title: 'Para o Mercado Local',
+            body: 'A redes de farmácias, hospitais e centros clínicos oferecemos um modelo de abastecimento unificado, estável e eficiente a partir de uma única fonte. O nosso sistema garante processos otimizados, distribuição ininterrupta e acesso consistente a produtos de alta qualidade.',
+          },
+          {
+            num: '03',
+            title: 'Torne-se Nosso Parceiro',
+            body: 'Conte-nos as suas necessidades e desenharemos um esquema de abastecimento personalizado, contínuo e confiável adaptado ao seu negócio.',
+            cta: 'Entre em Contato',
+          },
         ],
       },
       foundedCallout: {

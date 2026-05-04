@@ -1,7 +1,9 @@
+import Link from 'next/link';
 import type { Lang, PagesT } from '@/lib/i18n';
 import { BracketedEyebrow } from '@/components/Primitives';
 import { PageHero } from '@/components/PageHero';
 import { PageBanner } from '@/components/PageBanner';
+import { ArrowRight } from '@/components/icons';
 import { BANNER_SUBTITLES, PAGE_TITLES } from '@/lib/seo';
 
 type AboutT = PagesT['about'];
@@ -17,13 +19,14 @@ function AboutStory({ pT }: { pT: AboutT }) {
         <div className="body">
           <p>{pT.story.p1}</p>
           <p>{pT.story.p2}</p>
+          <p>{pT.story.p3}</p>
         </div>
       </div>
     </section>
   );
 }
 
-function AboutMission({ pT }: { pT: AboutT }) {
+function AboutMission({ pT, lang }: { pT: AboutT; lang: Lang }) {
   return (
     <section className="np-section" data-screen-label="02 Mission">
       <div className="np-section-head">
@@ -31,12 +34,18 @@ function AboutMission({ pT }: { pT: AboutT }) {
         <h2>{pT.mission.title}</h2>
         <p>{pT.mission.body}</p>
       </div>
-      <div className="np-mission-models">
+      <div className="np-mission-models np-mission-models-3">
         {pT.mission.models.map((m, i) => (
           <div className="np-mission-card" key={i}>
             <span className="num">{m.num}</span>
             <h3>{m.title}</h3>
             <p>{m.body}</p>
+            {m.cta && (
+              <Link href={`/${lang}/contact`} className="np-btn np-btn-primary np-btn-md np-mission-card-cta">
+                {m.cta}
+                <span className="np-btn-icon"><ArrowRight /></span>
+              </Link>
+            )}
           </div>
         ))}
       </div>
@@ -132,7 +141,7 @@ export function AboutPage({ pT, lang }: { pT: AboutT; lang: Lang }) {
       <PageBanner title={PAGE_TITLES.about[lang]} subtitle={BANNER_SUBTITLES.about?.[lang]} />
       <PageHero eyebrow={pT.eyebrow} headline={pT.headline} sub={pT.sub} />
       <AboutStory pT={pT} />
-      <AboutMission pT={pT} />
+      <AboutMission pT={pT} lang={lang} />
       <FoundedCallout pT={pT.foundedCallout} />
       <AboutVision pT={pT.vision} />
       <AboutLeadership pT={pT.leadership} />
