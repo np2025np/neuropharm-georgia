@@ -1,0 +1,397 @@
+export const LANGS = ['ka', 'en', 'ru', 'pt'] as const;
+export type Lang = (typeof LANGS)[number];
+export const DEFAULT_LANG: Lang = 'ka';
+
+export function isLang(value: string): value is Lang {
+  return (LANGS as readonly string[]).includes(value);
+}
+
+type NavKey = 'home' | 'about' | 'services' | 'sourcing' | 'quality' | 'news' | 'contact';
+
+export type HomeT = {
+  locale: string;
+  nav: Record<NavKey, string>;
+  hero: { eyebrow: string; headline: string; lead: string; ctaPrimary: string; ctaSecondary: string; caption: string };
+  trust: { license: string; licenseValue: string; founded: string; sources: string; sourcesValue: string };
+  services: {
+    eyebrow: string; headline: string; lead: string;
+    tier1: { num: string; title: string; body: string; more: string };
+    tier2: { num: string; title: string; body: string; more: string };
+  };
+  sourcing: { eyebrow: string; headline: string; lead: string; regionA: string; regionB: string; caption: string; badge: string };
+  about: {
+    eyebrow: string; headline: string; p1: string; p2: string; more: string;
+    stats: { num: string; l1: string; l2: string }[];
+  };
+  quality: { eyebrow: string; headline: string; lead: string; cols: { title: string; body: string }[] };
+  partners: { eyebrow: string; headline: string; lead: string; cta: string };
+  news: { eyebrow: string; headline: string; lead: string; items: { date: string; tag: string; title: string }[] };
+  footer: {
+    desc: string; quickLinks: string; contact: string; legal: string;
+    address: string; careers: string; copy: string; disclaimer: string;
+  };
+};
+
+export type PagesT = {
+  labels: { process: string; included: string; countries: string; certifications: string };
+  contact: {
+    eyebrow: string; headline: string; sub: string;
+    form: {
+      name: string; company: string; email: string; phone: string;
+      serviceLabel: string; servicePlaceholder: string; services: string[];
+      message: string; submit: string; consent: string;
+    };
+    info: {
+      title: string; addressLabel: string; address: string;
+      emailLabel: string; email: string; phoneLabel: string; phone: string;
+      hoursLabel: string; hours: string; licenseLabel: string; license: string;
+    };
+    mapCaption: string;
+  };
+  about: {
+    eyebrow: string; headline: string; sub: string;
+    story: { eyebrow: string; title: string; p1: string; p2: string };
+    mission: { eyebrow: string; title: string; body: string; models: { num: string; title: string; body: string }[] };
+    foundedCallout: { eyebrow: string; title: string; license: string; body: string };
+    vision: { eyebrow: string; title: string; body: string };
+    leadership: { eyebrow: string; title: string; sub: string; members: { role: string; name: string }[] };
+    compliance: { eyebrow: string; title: string; rows: { label: string; value: string }[] };
+  };
+  services: {
+    eyebrow: string; headline: string; sub: string;
+    tier1: {
+      eyebrow: string; title: string; body: string;
+      process: { num: string; title: string; body: string }[];
+      included: string[];
+    };
+    tier2: {
+      eyebrow: string; title: string; body: string;
+      process: { num: string; title: string; body: string }[];
+      included: string[];
+    };
+    compare: { eyebrow: string; title: string; cols: string[]; rows: { type: string; s1: string; s2: string }[] };
+    cta: { title: string; body: string; button: string };
+  };
+  sourcing: {
+    eyebrow: string; headline: string; sub: string; mapCaption: string;
+    regionA: {
+      eyebrow: string; title: string; body: string; body2: string;
+      countries: string[]; points: string[];
+    };
+    regionB: {
+      eyebrow: string; title: string; body: string; body2: string;
+      certifications: string[]; points: string[];
+    };
+    future: { title: string; body: string };
+  };
+};
+
+export const homeT: Record<Lang, HomeT> = {
+  ka: {
+    locale: 'ka',
+    nav: {
+      home: 'მთავარი', about: 'ჩვენ შესახებ', services: 'სერვისები',
+      sourcing: 'წყაროები', quality: 'ხარისხი', news: 'სიახლეები', contact: 'კონტაქტი',
+    },
+    hero: {
+      eyebrow: 'საქართველო · დაარსდა 2025',
+      headline: 'საიმედო ფარმაცევტული პარტნიორი საქართველოში',
+      lead: 'Neuropharm Georgia არის ფარმაცევტული კომპანია, რომელიც სპეციალიზდება ხარისხიანი მედიკამენტების იმპორტში — ევროპული და ინდური წარმოების ფარმაცევტული პროდუქტები მიეწოდება საქართველოს ბაზარს ზუსტი რეგულატორული მოთხოვნების დაცვით.',
+      ctaPrimary: 'დაგვიკავშირდით',
+      ctaSecondary: 'ჩვენი სერვისები',
+      caption: 'საიმპორტო ლოჯისტიკა — ვიზუალური სქემა',
+    },
+    trust: { license: 'ლიცენზია', licenseValue: '№438739260', founded: 'დაარსდა 2025 წელს', sources: 'წყაროები', sourcesValue: 'ევროპა · ინდოეთი' },
+    services: {
+      eyebrow: '02 — ჩვენი სერვისები',
+      headline: 'ორი ფორმატის თანამშრომლობა, ერთი მაღალი სტანდარტი',
+      lead: 'აირჩიეთ მოდელი, რომელიც თქვენს ოპერაციებს ემთხვევა — ლოგისტიკიდან საბაჟომდე, ან სრული დისტრიბუცია საქართველოს მასშტაბით.',
+      tier1: {
+        num: 'სერვისი 01', title: 'იმპორტი საბაჟომდე',
+        body: 'ჩვენ ვუზრუნველვყოფთ მომწოდებელთა მოძიებას, კონტრაქტირებას, მიწოდებას საქართველოს საბაჟომდე და სრულ დოკუმენტაციას. შემდგომი დისტრიბუცია რჩება თქვენი გუნდის ხელში.',
+        more: 'გაიგე მეტი',
+      },
+      tier2: {
+        num: 'სერვისი 02', title: 'იმპორტი + დისტრიბუცია',
+        body: 'ბოლომდე გადახურული მომსახურება — საწყობირება, ცივი ჯაჭვი, რეგიონული ლოგისტიკა და გაყიდვები ფარმაციებსა და საავადმყოფოებზე საქართველოს მასშტაბით.',
+        more: 'გაიგე მეტი',
+      },
+    },
+    sourcing: {
+      eyebrow: '03 — გლობალური ქსელი',
+      headline: 'ვირჩევთ მომწოდებელს, არა მხოლოდ ფასს',
+      lead: 'ჩვენი მომწოდებლები ევროპაში და ინდოეთში არჩეულია ხარისხის სისტემების, რეგულატორული რეპუტაციისა და მიწოდების სტაბილურობის მიხედვით.',
+      regionA: 'ევროპა', regionB: 'ინდოეთი',
+      caption: 'მომავალში: დააწექი რეგიონს და ნახე ხელმისაწვდომი მედიკამენტების სია.',
+      badge: 'მალე',
+    },
+    about: {
+      eyebrow: '04 — ჩვენ შესახებ',
+      headline: 'დაფუძნდა საქართველოში 2025 წელს ერთი პრინციპით — სანდოობა.',
+      p1: 'Neuropharm Georgia LLC არის ფარმაცევტული იმპორტიორი და დისტრიბუტორი, რომელიც მუშაობს ფარმაციებთან, საავადმყოფოებთან და კლინიკურ ცენტრებთან საქართველოს მასშტაბით.',
+      p2: 'ჩვენი მისიაა ხარისხიანი, რეგულატორულად სანდო მედიკამენტების ხელმისაწვდომობა — ევროპული და ინდური წარმოების ჯენერიკები, კლინიკური და სპეციალიზებული პრეპარატები.',
+      more: 'ჩვენ შესახებ',
+      stats: [
+        { num: '2025', l1: 'დაფუძნდა', l2: 'თბილისი, საქართველო' },
+        { num: '№', l1: 'ლიცენზირებული იმპორტიორი', l2: 'ლიცენზია 438739260' },
+        { num: '2', l1: 'წყარო რეგიონი', l2: 'ევროპა და ინდოეთი' },
+      ],
+    },
+    quality: {
+      eyebrow: '05 — ხარისხი და შესაბამისობა',
+      headline: 'ხარისხი იწყება წარმოებიდან, არა საწყობიდან',
+      lead: 'ჩვენი ოპერაციული პრინციპები შემოწმების ყოველ წერტილში: მომწოდებლის შერჩევიდან რეგულატორულ ანგარიშგებამდე და ლოგისტიკურ ჯაჭვამდე.',
+      cols: [
+        { title: 'ხარისხის სტანდარტები', body: 'ჩვენი მომწოდებლები მუშაობენ EU-GMP ან ეკვივალენტური სერტიფიცირებით; ყოველი მიწოდება გადის შემოსასვლელ კონტროლს.' },
+        { title: 'რეგულატორული შესაბამისობა', body: 'სრული დოკუმენტაცია საქართველოს მარეგულირებელი სტანდარტების შესაბამისად — იმპორტის ლიცენზიიდან ფარმაცევტულ ანგარიშგებამდე.' },
+        { title: 'ცივი ჯაჭვი და ლოგისტიკა', body: 'ვალიდირებული ცივი ჯაჭვის გადაზიდვა, რეალურ დროში ტემპერატურის მონიტორინგი და გადამოწმებული საწყობი თბილისში.' },
+      ],
+    },
+    partners: {
+      eyebrow: '06 — პარტნიორებისთვის',
+      headline: 'გახდი ჩვენი პარტნიორი',
+      lead: 'ფარმაციებისთვის, აფთიაქების ქსელებისთვის, საავადმყოფოებისთვის და კლინიკური ცენტრებისთვის — გვითხარით რა გჭირდებათ და გავაერთიანებთ ერთ მიმდინარე მომარაგებას.',
+      cta: 'გაგზავნე მოთხოვნა',
+    },
+    news: {
+      eyebrow: '07 — სიახლეები',
+      headline: 'სიახლეები Neuropharm-დან',
+      lead: 'რეგულატორული განახლებები, კომპანიის ახალი ამბები და ინდუსტრიული მოვლენები საქართველოდან.',
+      items: [
+        { date: '2025 · ოქტომბერი', tag: 'კომპანია', title: 'Neuropharm Georgia იღებს იმპორტიორის ლიცენზიას №438739260' },
+        { date: '2025 · ოქტომბერი', tag: 'რეგულაცია', title: 'საქართველოს ფარმაცევტული რეგულირების ახალი მოთხოვნები 2026 წელს' },
+        { date: '2025 · სექტემბერი', tag: 'პარტნიორობა', title: 'პირველი ხელშეკრულება ევროპელ მომწოდებელთან გაფორმდა' },
+      ],
+    },
+    footer: {
+      desc: 'Neuropharm Georgia LLC — ფარმაცევტული იმპორტი და დისტრიბუცია. დაფუძნდა 2025 წელს თბილისში.',
+      quickLinks: 'სწრაფი ბმულები', contact: 'კონტაქტი', legal: 'სამართლებრივი',
+      address: 'თბილისი, საქართველო · ზუსტი მისამართი მალე',
+      careers: 'კარიერა',
+      copy: '© 2025 Neuropharm Georgia LLC. ყველა უფლება დაცულია.',
+      disclaimer: 'მოცემული საიტი მოიცავს ზოგად ინფორმაციას ჩვენი სერვისების შესახებ. არცერთი მითითება არ წარმოადგენს მედიკამენტის მარკეტინგულ შეთავაზებას. პროდუქტთა ჩამონათვალი დაემატება რეგულატორული მიმოხილვის შემდეგ.',
+    },
+  },
+  en: {
+    locale: 'en',
+    nav: { home: 'Home', about: 'About', services: 'Services', sourcing: 'Sourcing', quality: 'Quality', news: 'News', contact: 'Contact' },
+    hero: {
+      eyebrow: 'Georgia · Founded 2025',
+      headline: 'A trusted pharmaceutical partner in Georgia',
+      lead: 'We import and distribute medicines manufactured in Europe and India for Georgian pharmacies, hospitals, and clinical providers — under strict regulatory compliance.',
+      ctaPrimary: 'Contact us',
+      ctaSecondary: 'Our services',
+      caption: 'Import logistics — schematic',
+    },
+    trust: { license: 'Licence', licenseValue: '№438739260', founded: 'Founded 2025', sources: 'Sourcing', sourcesValue: 'Europe · India' },
+    services: {
+      eyebrow: '02 — Our services',
+      headline: 'Two service tiers, one quality standard',
+      lead: 'Choose the model that fits your operations — logistics to customs, or full in-country distribution.',
+      tier1: { num: 'Service 01', title: 'Import to customs', body: 'We handle supplier sourcing, contracting, delivery to Georgian customs, and full documentation. Onward distribution stays with your team.', more: 'Learn more' },
+      tier2: { num: 'Service 02', title: 'Import + distribution', body: 'End-to-end service — warehousing, cold chain, regional logistics, and direct sales to pharmacies and hospitals across Georgia.', more: 'Learn more' },
+    },
+    sourcing: {
+      eyebrow: '03 — Global network',
+      headline: 'We choose origin, not just price',
+      lead: 'Our suppliers in Europe and India are selected on the strength of their quality systems, regulatory standing, and supply reliability.',
+      regionA: 'Europe', regionB: 'India',
+      caption: 'Coming soon: click a region to see available medications.',
+      badge: 'Soon',
+    },
+    about: {
+      eyebrow: '04 — About us',
+      headline: 'Founded in Georgia in 2025 with a single principle — reliability.',
+      p1: 'Neuropharm Georgia LLC is a pharmaceutical importer and distributor working with pharmacies, hospitals, and clinical centres across Georgia.',
+      p2: 'Our mission is to make quality, regulatory-grade medicines accessible — European and Indian generics, clinical, and specialty pharmaceuticals.',
+      more: 'About us',
+      stats: [
+        { num: '2025', l1: 'Founded', l2: 'Tbilisi, Georgia' },
+        { num: '№', l1: 'Licensed importer', l2: 'License 438739260' },
+        { num: '2', l1: 'Source regions', l2: 'Europe & India' },
+      ],
+    },
+    quality: {
+      eyebrow: '05 — Quality & compliance',
+      headline: 'Quality starts at the factory, not the warehouse',
+      lead: 'Our operating principles meet you at every checkpoint — from supplier selection through regulatory reporting and onward to logistics.',
+      cols: [
+        { title: 'Quality standards', body: 'Our suppliers operate under EU-GMP or equivalent certification; every shipment is checked at intake.' },
+        { title: 'Regulatory compliance', body: 'Full documentation aligned with Georgian regulatory standards — from import licensing to pharmacovigilance reporting.' },
+        { title: 'Cold chain & logistics', body: 'Validated cold-chain transport, real-time temperature monitoring, and a verified warehouse in Tbilisi.' },
+      ],
+    },
+    partners: {
+      eyebrow: '06 — For partners',
+      headline: 'Become our partner',
+      lead: 'For pharmacies, pharmacy chains, hospitals, and clinical centres — tell us what you need and we will consolidate it into a single supply line.',
+      cta: 'Send a request',
+    },
+    news: {
+      eyebrow: '07 — News',
+      headline: "What's happening at Neuropharm",
+      lead: 'Regulatory updates, company news, and industry events from Georgia.',
+      items: [
+        { date: '2025 · October', tag: 'Company', title: 'Neuropharm Georgia receives import licence №438739260' },
+        { date: '2025 · October', tag: 'Regulation', title: 'New Georgian pharmaceutical regulatory requirements for 2026' },
+        { date: '2025 · September', tag: 'Partnership', title: 'First agreement with a European supplier signed' },
+      ],
+    },
+    footer: {
+      desc: 'Neuropharm Georgia LLC — pharmaceutical import and distribution. Founded in Tbilisi in 2025.',
+      quickLinks: 'Quick links', contact: 'Contact', legal: 'Legal',
+      address: 'Tbilisi, Georgia · full address coming soon',
+      careers: 'Careers',
+      copy: '© 2025 Neuropharm Georgia LLC. All rights reserved.',
+      disclaimer: 'This site contains general information about our services. Nothing on this site constitutes a marketing offer for any medication. A product list will be added after regulatory review.',
+    },
+  },
+  ru: {
+    locale: 'ru',
+    nav: { home: 'Главная', about: 'О нас', services: 'Услуги', sourcing: 'Поставщики', quality: 'Качество', news: 'Новости', contact: 'Контакты' },
+    hero: {
+      eyebrow: 'Грузия · Основано в 2025',
+      headline: 'Надёжный фармацевтический партнёр в Грузии',
+      lead: 'Мы импортируем и дистрибутируем лекарственные средства производства Европы и Индии для аптек, больниц и клинических центров Грузии — при строгом регуляторном соответствии.',
+      ctaPrimary: 'Связаться с нами',
+      ctaSecondary: 'Наши услуги',
+      caption: 'Импортная логистика — схема',
+    },
+    trust: { license: 'Лицензия', licenseValue: '№438739260', founded: 'Основано в 2025', sources: 'Источники', sourcesValue: 'Европа · Индия' },
+    services: {
+      eyebrow: '02 — Наши услуги',
+      headline: 'Два уровня сотрудничества, один стандарт качества',
+      lead: 'Выберите модель, соответствующую вашей операционной структуре — логистика до таможни или полная дистрибуция по стране.',
+      tier1: { num: 'Услуга 01', title: 'Импорт до таможни', body: 'Мы обеспечиваем поиск поставщиков, заключение договоров, доставку до грузинской таможни и полный комплект документации. Дистрибуция остаётся за вашей командой.', more: 'Узнать больше' },
+      tier2: { num: 'Услуга 02', title: 'Импорт + дистрибуция', body: 'Услуга «под ключ» — складирование, холодовая цепь, региональная логистика и прямые продажи аптекам и больницам по всей Грузии.', more: 'Узнать больше' },
+    },
+    sourcing: {
+      eyebrow: '03 — Глобальная сеть',
+      headline: 'Мы выбираем происхождение, а не только цену',
+      lead: 'Наши поставщики в Европе и Индии отобраны по системам качества, регуляторной репутации и стабильности поставок.',
+      regionA: 'Европа', regionB: 'Индия',
+      caption: 'Скоро: нажмите на регион, чтобы увидеть доступные препараты.',
+      badge: 'Скоро',
+    },
+    about: {
+      eyebrow: '04 — О нас',
+      headline: 'Основано в Грузии в 2025 году по одному принципу — надёжность.',
+      p1: 'Neuropharm Georgia LLC — фармацевтический импортёр и дистрибьютор, работающий с аптеками, больницами и клиническими центрами по всей Грузии.',
+      p2: 'Наша миссия — обеспечить доступность качественных, регуляторно-надёжных лекарств: европейские и индийские дженерики, клинические и специализированные препараты.',
+      more: 'О нас',
+      stats: [
+        { num: '2025', l1: 'Основано', l2: 'Тбилиси, Грузия' },
+        { num: '№', l1: 'Лицензированный импортёр', l2: 'Лицензия 438739260' },
+        { num: '2', l1: 'Регионов поставок', l2: 'Европа и Индия' },
+      ],
+    },
+    quality: {
+      eyebrow: '05 — Качество и соответствие',
+      headline: 'Качество начинается на заводе, а не на складе',
+      lead: 'Наши операционные принципы работают на каждом этапе — от выбора поставщика до регуляторной отчётности и логистики.',
+      cols: [
+        { title: 'Стандарты качества', body: 'Наши поставщики работают по EU-GMP или эквивалентной сертификации; каждая партия проходит входной контроль.' },
+        { title: 'Регуляторное соответствие', body: 'Полный пакет документов в соответствии со стандартами Грузии — от импортной лицензии до фармаконадзора.' },
+        { title: 'Холодовая цепь и логистика', body: 'Валидированная холодовая транспортировка, мониторинг температуры в реальном времени и верифицированный склад в Тбилиси.' },
+      ],
+    },
+    partners: {
+      eyebrow: '06 — Для партнёров',
+      headline: 'Станьте нашим партнёром',
+      lead: 'Для аптек, аптечных сетей, больниц и клинических центров — сообщите нам, что вам нужно, и мы соберём это в одну поставку.',
+      cta: 'Отправить запрос',
+    },
+    news: {
+      eyebrow: '07 — Новости',
+      headline: 'Что происходит в Neuropharm',
+      lead: 'Регуляторные обновления, новости компании и события отрасли из Грузии.',
+      items: [
+        { date: '2025 · Октябрь', tag: 'Компания', title: 'Neuropharm Georgia получает импортную лицензию №438739260' },
+        { date: '2025 · Октябрь', tag: 'Регулирование', title: 'Новые требования фармацевтического регулирования Грузии в 2026 году' },
+        { date: '2025 · Сентябрь', tag: 'Партнёрство', title: 'Подписан первый договор с европейским поставщиком' },
+      ],
+    },
+    footer: {
+      desc: 'Neuropharm Georgia LLC — фармацевтический импорт и дистрибуция. Основано в Тбилиси в 2025 году.',
+      quickLinks: 'Быстрые ссылки', contact: 'Контакты', legal: 'Правовая информация',
+      address: 'Тбилиси, Грузия · точный адрес скоро',
+      careers: 'Карьера',
+      copy: '© 2025 Neuropharm Georgia LLC. Все права защищены.',
+      disclaimer: 'Сайт содержит общую информацию об услугах компании. Ничто на сайте не является маркетинговым предложением какого-либо лекарственного средства. Перечень продуктов будет добавлен после регуляторного рассмотрения.',
+    },
+  },
+  pt: {
+    locale: 'pt',
+    nav: { home: 'Início', about: 'Sobre', services: 'Serviços', sourcing: 'Fornecimento', quality: 'Qualidade', news: 'Notícias', contact: 'Contato' },
+    hero: {
+      eyebrow: 'Geórgia · Fundada em 2025',
+      headline: 'Um parceiro farmacêutico de confiança na Geórgia',
+      lead: 'Importamos e distribuímos medicamentos fabricados na Europa e na Índia para farmácias, hospitais e centros clínicos da Geórgia — com rigorosa conformidade regulatória.',
+      ctaPrimary: 'Entre em contato',
+      ctaSecondary: 'Nossos serviços',
+      caption: 'Logística de importação — esquema',
+    },
+    trust: { license: 'Licença', licenseValue: '№438739260', founded: 'Fundada em 2025', sources: 'Origens', sourcesValue: 'Europa · Índia' },
+    services: {
+      eyebrow: '02 — Nossos serviços',
+      headline: 'Dois níveis de serviço, um padrão de qualidade',
+      lead: 'Escolha o modelo que se ajusta à sua operação — logística até a alfândega ou distribuição completa no país.',
+      tier1: { num: 'Serviço 01', title: 'Importação até a alfândega', body: 'Cuidamos da seleção de fornecedores, contratação, entrega à alfândega georgiana e documentação completa. A distribuição posterior fica com sua equipe.', more: 'Saiba mais' },
+      tier2: { num: 'Serviço 02', title: 'Importação + distribuição', body: 'Serviço de ponta a ponta — armazenagem, cadeia de frio, logística regional e vendas diretas a farmácias e hospitais em toda a Geórgia.', more: 'Saiba mais' },
+    },
+    sourcing: {
+      eyebrow: '03 — Rede global',
+      headline: 'Escolhemos a origem, não apenas o preço',
+      lead: 'Nossos fornecedores na Europa e na Índia são selecionados pelos sistemas de qualidade, reputação regulatória e estabilidade de fornecimento.',
+      regionA: 'Europa', regionB: 'Índia',
+      caption: 'Em breve: clique em uma região para ver os medicamentos disponíveis.',
+      badge: 'Em breve',
+    },
+    about: {
+      eyebrow: '04 — Sobre nós',
+      headline: 'Fundada na Geórgia em 2025 com um único princípio — confiabilidade.',
+      p1: 'A Neuropharm Georgia LLC é uma importadora e distribuidora farmacêutica que atende farmácias, hospitais e centros clínicos em toda a Geórgia.',
+      p2: 'Nossa missão é tornar acessíveis medicamentos de qualidade e conformidade regulatória — genéricos europeus e indianos, clínicos e especializados.',
+      more: 'Sobre nós',
+      stats: [
+        { num: '2025', l1: 'Fundada', l2: 'Tbilisi, Geórgia' },
+        { num: '№', l1: 'Importadora licenciada', l2: 'Licença 438739260' },
+        { num: '2', l1: 'Regiões de origem', l2: 'Europa e Índia' },
+      ],
+    },
+    quality: {
+      eyebrow: '05 — Qualidade e conformidade',
+      headline: 'Qualidade começa na fábrica, não no armazém',
+      lead: 'Nossos princípios operacionais atuam em cada ponto de controle — desde a seleção do fornecedor até relatórios regulatórios e logística.',
+      cols: [
+        { title: 'Padrões de qualidade', body: 'Nossos fornecedores operam sob certificação EU-GMP ou equivalente; cada remessa é verificada na entrada.' },
+        { title: 'Conformidade regulatória', body: 'Documentação completa alinhada aos padrões regulatórios georgianos — da licença de importação à farmacovigilância.' },
+        { title: 'Cadeia de frio e logística', body: 'Transporte com cadeia de frio validada, monitoramento de temperatura em tempo real e armazém verificado em Tbilisi.' },
+      ],
+    },
+    partners: {
+      eyebrow: '06 — Para parceiros',
+      headline: 'Torne-se nosso parceiro',
+      lead: 'Para farmácias, redes de farmácias, hospitais e centros clínicos — diga-nos do que você precisa e consolidamos em uma única linha de suprimento.',
+      cta: 'Enviar solicitação',
+    },
+    news: {
+      eyebrow: '07 — Notícias',
+      headline: 'O que está acontecendo na Neuropharm',
+      lead: 'Atualizações regulatórias, novidades da empresa e eventos do setor na Geórgia.',
+      items: [
+        { date: '2025 · Outubro', tag: 'Empresa', title: 'Neuropharm Georgia recebe licença de importação №438739260' },
+        { date: '2025 · Outubro', tag: 'Regulação', title: 'Novos requisitos regulatórios farmacêuticos da Geórgia para 2026' },
+        { date: '2025 · Setembro', tag: 'Parceria', title: 'Primeiro contrato com fornecedor europeu assinado' },
+      ],
+    },
+    footer: {
+      desc: 'Neuropharm Georgia LLC — importação e distribuição farmacêutica. Fundada em Tbilisi em 2025.',
+      quickLinks: 'Links rápidos', contact: 'Contato', legal: 'Legal',
+      address: 'Tbilisi, Geórgia · endereço completo em breve',
+      careers: 'Carreiras',
+      copy: '© 2025 Neuropharm Georgia LLC. Todos os direitos reservados.',
+      disclaimer: 'Este site contém informações gerais sobre nossos serviços. Nada neste site constitui oferta de marketing de qualquer medicamento. Uma lista de produtos será adicionada após análise regulatória.',
+    },
+  },
+};
