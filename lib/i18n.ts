@@ -96,8 +96,8 @@ export const homeT: Record<Lang, HomeT> = {
     },
     hero: {
       eyebrow: 'საქართველო · დაარსდა 2025',
-      headline: 'საიმედო ფარმაცევტული პარტნიორი საქართველოში',
-      lead: 'Neuropharm Georgia არის ფარმაცევტული კომპანია, რომელიც სპეციალიზდება ხარისხიანი მედიკამენტების იმპორტში — ევროპული და ინდური წარმოების ფარმაცევტული პროდუქტები მიეწოდება საქართველოს ბაზარს ზუსტი რეგულატორული მოთხოვნების დაცვით.',
+      headline: 'გლობალური ფარმაცევტული ხარისხი EU GMP სტანდარტით',
+      lead: 'Neuropharm Georgia LLC არის ფარმაცევტული დისტრიბუციული კომპანია, რომელიც უზრუნველყოფს საერთაშორისო სტანდარტების შესაბამისი მედიკამენტებისა და ფარმაცევტული პროდუქციის მიწოდებას სამხრეთ კავკასიის რეგიონში.',
       ctaPrimary: 'დაგვიკავშირდით',
       ctaSecondary: 'ჩვენი სერვისები',
       caption: 'საიმპორტო ლოჯისტიკა — ვიზუალური სქემა',
@@ -178,8 +178,8 @@ export const homeT: Record<Lang, HomeT> = {
     nav: { home: 'Home', about: 'About', services: 'Services', sourcing: 'Sourcing', quality: 'Quality', news: 'News', contact: 'Contact' },
     hero: {
       eyebrow: 'Georgia · Founded 2025',
-      headline: 'A trusted pharmaceutical partner in Georgia',
-      lead: 'We import and distribute medicines manufactured in Europe and India for Georgian pharmacies, hospitals, and clinical providers — under strict regulatory compliance.',
+      headline: 'Global Pharmaceutical Quality with EU GMP Standards',
+      lead: 'Neuropharm Georgia LLC is a pharmaceutical distribution company providing internationally compliant medicines and pharmaceutical products to the South Caucasus region.',
       ctaPrimary: 'Contact us',
       ctaSecondary: 'Our services',
       caption: 'Import logistics — schematic',
@@ -252,8 +252,8 @@ export const homeT: Record<Lang, HomeT> = {
     nav: { home: 'Главная', about: 'О нас', services: 'Услуги', sourcing: 'Поставщики', quality: 'Качество', news: 'Новости', contact: 'Контакты' },
     hero: {
       eyebrow: 'Грузия · Основано в 2025',
-      headline: 'Надёжный фармацевтический партнёр в Грузии',
-      lead: 'Мы импортируем и дистрибутируем лекарственные средства производства Европы и Индии для аптек, больниц и клинических центров Грузии — при строгом регуляторном соответствии.',
+      headline: 'Глобальное фармацевтическое качество по стандартам EU GMP',
+      lead: 'Neuropharm Georgia LLC — фармацевтическая дистрибьюторская компания, обеспечивающая поставки медикаментов и фармацевтической продукции, соответствующих международным стандартам, в регион Южного Кавказа.',
       ctaPrimary: 'Связаться с нами',
       ctaSecondary: 'Наши услуги',
       caption: 'Импортная логистика — схема',
@@ -326,8 +326,8 @@ export const homeT: Record<Lang, HomeT> = {
     nav: { home: 'Início', about: 'Sobre', services: 'Serviços', sourcing: 'Fornecimento', quality: 'Qualidade', news: 'Notícias', contact: 'Contato' },
     hero: {
       eyebrow: 'Geórgia · Fundada em 2025',
-      headline: 'Um parceiro farmacêutico de confiança na Geórgia',
-      lead: 'Importamos e distribuímos medicamentos fabricados na Europa e na Índia para farmácias, hospitais e centros clínicos da Geórgia — com rigorosa conformidade regulatória.',
+      headline: 'Qualidade Farmacêutica Global com Padrões EU GMP',
+      lead: 'A Neuropharm Georgia LLC é uma empresa de distribuição farmacêutica que fornece medicamentos e produtos farmacêuticos em conformidade com padrões internacionais para a região do Cáucaso do Sul.',
       ctaPrimary: 'Entre em contato',
       ctaSecondary: 'Nossos serviços',
       caption: 'Logística de importação — esquema',
