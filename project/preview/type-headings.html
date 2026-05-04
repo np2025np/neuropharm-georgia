@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Heading scale</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .row { display: flex; align-items: baseline; gap: 16px; padding: 8px 0; border-bottom: 1px solid var(--border); }
+  .row:last-child { border-bottom: 0; }
+  .h { font-family: var(--font-serif); color: var(--brand); font-weight: 600; line-height: 1.15; letter-spacing: -0.01em; flex: 1; }
+  .meta { font-family: var(--font-mono); font-size: 11px; color: var(--fg-muted); white-space: nowrap; }
+</style></head><body>
+<div class="card">
+  <div class="row"><span class="h" style="font-size:48px; font-weight:700;">Heading 1</span><span class="meta">48px / 700</span></div>
+  <div class="row"><span class="h" style="font-size:36px;">Heading 2</span><span class="meta">36px / 600</span></div>
+  <div class="row"><span class="h" style="font-size:24px;">Heading 3</span><span class="meta">24px / 600</span></div>
+  <div class="row"><span class="h" style="font-size:20px;">Heading 4</span><span class="meta">20px / 600</span></div>
+</div>
+</body></html>

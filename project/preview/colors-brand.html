@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Brand colors</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .swatches { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .sw { border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+  .sw .chip { height: 96px; display: flex; align-items: flex-end; padding: 14px; color: white; }
+  .sw.coral .chip { background: #F36633; }
+  .sw.teal  .chip { background: #1F4F4A; }
+  .sw .meta { padding: 12px 14px; background: var(--bg-elevated); }
+  .name { font-family: var(--font-serif); font-size: 18px; color: var(--brand); margin: 0 0 2px; }
+  .hex { font-family: var(--font-mono); font-size: 12px; color: var(--fg-muted); }
+  .role { font-size: 13px; color: var(--fg); margin-top: 6px; }
+  .chip .role-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.9; }
+</style>
+</head><body>
+<div class="card">
+  <div class="swatches">
+    <div class="sw coral">
+      <div class="chip"><span class="role-tag">Primary · CTA</span></div>
+      <div class="meta">
+        <div class="name">Coral 500</div>
+        <div class="hex">#F36633</div>
+        <div class="role">Buttons, links, focus rings, accent rules</div>
+      </div>
+    </div>
+    <div class="sw teal">
+      <div class="chip"><span class="role-tag">Secondary · Anchor</span></div>
+      <div class="meta">
+        <div class="name">Teal 500</div>
+        <div class="hex">#1F4F4A</div>
+        <div class="role">Logo, headings, header bar, footer</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body></html>

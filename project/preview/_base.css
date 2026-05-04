@@ -1,0 +1,24 @@
+/* Shared base for design system preview cards.
+   Each card targets ~700px wide and varies in height.
+   Keep cards minimal — no titles, no framing chrome. */
+@import url('../colors_and_type.css');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+}
+.card {
+  padding: 28px 32px;
+  width: 700px;
+  box-sizing: border-box;
+}
+.card-dark {
+  background: var(--np-teal-800);
+  color: var(--np-paper);
+}
+.row { display: flex; gap: 12px; align-items: stretch; }
+.col { display: flex; flex-direction: column; gap: 12px; }
+.label { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-muted); }
+.mono { font-family: var(--font-mono); font-size: 12px; }

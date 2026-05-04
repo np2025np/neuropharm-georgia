@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Coral scale</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .scale { display: grid; grid-template-columns: repeat(8, 1fr); gap: 4px; }
+  .step { aspect-ratio: 1 / 1.2; border-radius: 6px; padding: 8px; display: flex; flex-direction: column; justify-content: space-between; font-family: var(--font-mono); font-size: 10px; }
+  .step .num { font-weight: 600; }
+  .step .hex { opacity: 0.85; }
+  .l { color: #1A1A1A; } .d { color: #FFFFFF; }
+</style></head><body>
+<div class="card">
+  <div class="label" style="margin-bottom: 14px;">Coral · Primary scale</div>
+  <div class="scale">
+    <div class="step l" style="background:#FEF3EE"><span class="num">50</span><span class="hex">#FEF3EE</span></div>
+    <div class="step l" style="background:#FCE2D2"><span class="num">100</span><span class="hex">#FCE2D2</span></div>
+    <div class="step l" style="background:#F9C2A2"><span class="num">200</span><span class="hex">#F9C2A2</span></div>
+    <div class="step l" style="background:#F69E72"><span class="num">300</span><span class="hex">#F69E72</span></div>
+    <div class="step d" style="background:#F4824F"><span class="num">400</span><span class="hex">#F4824F</span></div>
+    <div class="step d" style="background:#F36633; outline: 2px solid #1F4F4A; outline-offset: -2px;"><span class="num">500</span><span class="hex">#F36633</span></div>
+    <div class="step d" style="background:#DA4F1E"><span class="num">600</span><span class="hex">#DA4F1E</span></div>
+    <div class="step d" style="background:#B43E15"><span class="num">700</span><span class="hex">#B43E15</span></div>
+  </div>
+</div>
+</body></html>

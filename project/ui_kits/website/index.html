@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Neuropharm Georgia — Website UI kit</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="Primitives.jsx"></script>
+<script type="text/babel" src="i18n.jsx"></script>
+<script type="text/babel" src="Header.jsx"></script>
+<script type="text/babel" src="Hero.jsx"></script>
+<script type="text/babel" src="ProductsGrid.jsx"></script>
+<script type="text/babel" src="StatsStrip.jsx"></script>
+<script type="text/babel" src="AboutSplit.jsx"></script>
+<script type="text/babel" src="Quote.jsx"></script>
+<script type="text/babel" src="LogoCloud.jsx"></script>
+<script type="text/babel" src="CTABanner.jsx"></script>
+<script type="text/babel" src="Footer.jsx"></script>
+
+<script type="text/babel">
+const { useState, useEffect } = React;
+
+function HomeScreen({ t }) {
+  return (
+    <main data-screen-label="01 Home">
+      <Hero t={t} />
+      <LogoCloud t={t} />
+      <ProductsGrid t={t} />
+      <StatsStrip t={t} />
+      <AboutSplit t={t} />
+      <Quote t={t} />
+      <CTABanner t={t} />
+    </main>
+  );
+}
+
+function ProductsScreen({ t }) {
+  return (
+    <main data-screen-label="02 Products">
+      <section className="np-section" style={{paddingTop: 96}}>
+        <div className="np-section-head">
+          <BracketedEyebrow color="var(--accent)">{t.products.eyebrow}</BracketedEyebrow>
+          <h2>{t.products.headline}</h2>
+          <p>{t.products.intro}</p>
+        </div>
+        <div className="np-products" style={{gridTemplateColumns: 'repeat(3, 1fr)'}}>
+          {[t.products.cardio, t.products.neuro, t.products.onco,
+            t.products.cardio, t.products.neuro, t.products.onco].map((it, i) => (
+            <article className="np-product-card" key={i}>
+              <div className="icon-wrap">
+                {i % 3 === 0 ? <Activity size={24}/> : i % 3 === 1 ? <Shield size={24}/> : <Layers size={24}/>}
+              </div>
+              <h3>{it.title}</h3>
+              <p>{it.body}</p>
+              <span className="more">{t.products.more} <ArrowRight size={14}/></span>
+            </article>
+          ))}
+        </div>
+      </section>
+      <CTABanner t={t}/>
+    </main>
+  );
+}
+
+function AboutScreen({ t }) {
+  return (
+    <main data-screen-label="03 About">
+      <section className="np-section" style={{paddingTop: 96}}>
+        <div className="np-section-head" style={{maxWidth: 760}}>
+          <BracketedEyebrow color="var(--accent)">{t.about.eyebrow}</BracketedEyebrow>
+          <h2 style={{fontSize: 'clamp(2rem, 3vw + 1rem, 3rem)'}}>{t.about.headline}</h2>
+          <p style={{fontSize: 20}}>{t.about.body}</p>
+        </div>
+      </section>
+      <StatsStrip t={t}/>
+      <AboutSplit t={t}/>
+      <Quote t={t}/>
+    </main>
+  );
+}
+
+function ContactScreen({ t }) {
+  return (
+    <main data-screen-label="04 Contact">
+      <section className="np-section" style={{paddingTop: 96, maxWidth: 720}}>
+        <BracketedEyebrow color="var(--accent)">{t.footer.contact}</BracketedEyebrow>
+        <h2 style={{
+          fontFamily: 'var(--font-serif)', fontSize: 'clamp(2rem, 3vw + 1rem, 3rem)',
+          color: 'var(--brand)', margin: '16px 0 24px', lineHeight: 1.15, fontWeight: 600,
+        }}>Get in touch</h2>
+        <p style={{fontSize: 18, lineHeight: 1.6, color: 'var(--fg-muted)', maxWidth: '60ch'}}>
+          For procurement enquiries, regulatory documentation requests, or partnership discussions, please use the form below or write to us directly.
+        </p>
+        <form style={{display:'grid', gridTemplateColumns: '1fr 1fr', gap: 20, marginTop: 40}}>
+          <div>
+            <label style={{display:'block', fontSize:12, fontWeight:600, color:'var(--brand)', marginBottom:6, fontFamily:'var(--font-sans)'}}>Full name</label>
+            <input style={{width:'100%', padding:'10px 12px', border:'1px solid var(--border)', borderRadius:6, background:'var(--bg-elevated)', color:'var(--fg)', fontFamily:'var(--font-sans)', fontSize:14, boxSizing:'border-box'}}/>
+          </div>
+          <div>
+            <label style={{display:'block', fontSize:12, fontWeight:600, color:'var(--brand)', marginBottom:6, fontFamily:'var(--font-sans)'}}>Organisation</label>
+            <input style={{width:'100%', padding:'10px 12px', border:'1px solid var(--border)', borderRadius:6, background:'var(--bg-elevated)', color:'var(--fg)', fontFamily:'var(--font-sans)', fontSize:14, boxSizing:'border-box'}}/>
+          </div>
+          <div style={{gridColumn:'1 / -1'}}>
+            <label style={{display:'block', fontSize:12, fontWeight:600, color:'var(--brand)', marginBottom:6, fontFamily:'var(--font-sans)'}}>Email</label>
+            <input style={{width:'100%', padding:'10px 12px', border:'1px solid var(--border)', borderRadius:6, background:'var(--bg-elevated)', color:'var(--fg)', fontFamily:'var(--font-sans)', fontSize:14, boxSizing:'border-box'}}/>
+          </div>
+          <div style={{gridColumn:'1 / -1'}}>
+            <label style={{display:'block', fontSize:12, fontWeight:600, color:'var(--brand)', marginBottom:6, fontFamily:'var(--font-sans)'}}>Message</label>
+            <textarea rows={5} style={{width:'100%', padding:'10px 12px', border:'1px solid var(--border)', borderRadius:6, background:'var(--bg-elevated)', color:'var(--fg)', fontFamily:'var(--font-sans)', fontSize:14, boxSizing:'border-box', resize:'vertical'}}/>
+          </div>
+          <div style={{gridColumn:'1 / -1'}}>
+            <Button variant="primary" size="lg" icon={<ArrowRight />}>Send enquiry</Button>
+          </div>
+        </form>
+      </section>
+    </main>
+  );
+}
+
+function App() {
+  const [lang, setLang] = useState('EN');
+  const [dark, setDark] = useState(false);
+  const [page, setPage] = useState('home');
+  const t = translations[lang];
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+  }, [dark]);
+
+  return (
+    <>
+      <Header lang={lang} setLang={setLang} dark={dark} setDark={setDark} page={page} setPage={setPage} t={t}/>
+      {page === 'home' && <HomeScreen t={t}/>}
+      {page === 'products' && <ProductsScreen t={t}/>}
+      {page === 'about' && <AboutScreen t={t}/>}
+      {page === 'partners' && <ProductsScreen t={t}/>}
+      {page === 'contact' && <ContactScreen t={t}/>}
+      <Footer t={t} lang={lang}/>
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>

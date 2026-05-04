@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Homepage breakpoint comparison</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #1A1A1A; color: #FAFAF7; font-family: ui-sans-serif, system-ui, sans-serif; min-height: 100vh; }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    padding: 32px;
+    max-width: 1700px;
+    margin: 0 auto;
+  }
+  .col h3 {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0 0 12px;
+    opacity: 0.7;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .col h3 span.dim { opacity: 0.5; font-weight: 500; letter-spacing: 0.04em; text-transform: none; }
+  .frame {
+    width: 100%;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    aspect-ratio: 16 / 10;
+  }
+  .frame.tall { aspect-ratio: 9 / 16; }
+  .frame iframe { width: 100%; height: 100%; border: 0; display: block; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 56px; }
+  .row.mobile { grid-template-columns: 1fr 1fr; gap: 32px; max-width: 880px; margin-left: auto; margin-right: auto; }
+  .mobile .frame { aspect-ratio: 9 / 17; }
+  h2.section {
+    font-family: Georgia, serif;
+    font-weight: 600;
+    font-size: 24px;
+    margin: 0 0 24px;
+    padding: 0 32px;
+    max-width: 1700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  h2.section .scrolling {
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    opacity: 0.6;
+    margin-left: 16px;
+    text-transform: uppercase;
+  }
+  .controls {
+    padding: 24px 32px;
+    max-width: 1700px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #333;
+    margin-bottom: 24px;
+  }
+  .controls strong { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.7; }
+  .controls button {
+    background: #2a2a2a; color: #FAFAF7; border: 1px solid #444;
+    padding: 6px 14px; border-radius: 6px; font-size: 12px; cursor: pointer;
+    font-family: inherit;
+  }
+  .controls button:hover { background: #3a3a3a; }
+  .controls input[type="range"] { width: 200px; }
+  .controls .scroll-y { color: #aaa; font-variant-numeric: tabular-nums; min-width: 70px; font-size: 12px; }
+</style>
+</head>
+<body>
+
+<div class="controls">
+  <strong>Scroll all</strong>
+  <button data-scroll="0">Top</button>
+  <button data-scroll="900">Hero / Trust</button>
+  <button data-scroll="1700">Services</button>
+  <button data-scroll="2600">Sourcing / Map</button>
+  <button data-scroll="3500">About</button>
+  <button data-scroll="4400">Quality band</button>
+  <button data-scroll="5300">Partners CTA</button>
+  <button data-scroll="6200">News / Footer</button>
+  <input type="range" min="0" max="7000" value="0" id="slider"/>
+  <span class="scroll-y" id="scrollY">0px</span>
+</div>
+
+<h2 class="section">Desktop · 1280 × 800<span class="scrolling">light · dark</span></h2>
+<div class="row">
+  <div class="col">
+    <h3>Light <span class="dim">desktop</span></h3>
+    <div class="frame"><iframe data-mode="light" data-w="1280" src="Homepage.html#light"></iframe></div>
+  </div>
+  <div class="col">
+    <h3>Dark <span class="dim">desktop</span></h3>
+    <div class="frame"><iframe data-mode="dark" data-w="1280" src="Homepage.html#dark"></iframe></div>
+  </div>
+</div>
+
+<h2 class="section">Mobile · 390 × 844<span class="scrolling">iphone-ish</span></h2>
+<div class="row mobile">
+  <div class="col">
+    <h3>Light <span class="dim">390 px</span></h3>
+    <div class="frame"><iframe data-mode="light" data-w="390" src="Homepage.html#light-mobile"></iframe></div>
+  </div>
+  <div class="col">
+    <h3>Dark <span class="dim">390 px</span></h3>
+    <div class="frame"><iframe data-mode="dark" data-w="390" src="Homepage.html#dark-mobile"></iframe></div>
+  </div>
+</div>
+
+<script>
+  // Resize iframes to their declared viewport widths and scale them down to fit the box.
+  function fitFrames() {
+    document.querySelectorAll('iframe[data-w]').forEach(f => {
+      const w = parseInt(f.dataset.w, 10);
+      const box = f.parentElement.getBoundingClientRect();
+      const scale = box.width / w;
+      const h = box.height / scale;
+      f.style.width = w + 'px';
+      f.style.height = h + 'px';
+      f.style.transformOrigin = 'top left';
+      f.style.transform = `scale(${scale})`;
+      f.style.position = 'absolute';
+    });
+  }
+  // Make .frame relative so absolute iframes layout right
+  document.querySelectorAll('.frame').forEach(f => { f.style.position = 'relative'; });
+  // Apply theme inside each iframe after load
+  function applyTheme(iframe) {
+    try {
+      const doc = iframe.contentDocument;
+      if (!doc) return;
+      doc.documentElement.dataset.theme = iframe.dataset.mode;
+    } catch (e) {}
+  }
+  document.querySelectorAll('iframe').forEach(f => {
+    f.addEventListener('load', () => { applyTheme(f); fitFrames(); });
+  });
+  window.addEventListener('resize', fitFrames);
+  fitFrames();
+
+  // Sync scroll across all iframes
+  function setScroll(y) {
+    document.querySelectorAll('iframe').forEach(f => {
+      try { f.contentWindow.scrollTo(0, y); } catch (e) {}
+    });
+    document.getElementById('slider').value = y;
+    document.getElementById('scrollY').textContent = y + 'px';
+  }
+  document.querySelectorAll('button[data-scroll]').forEach(b => {
+    b.addEventListener('click', () => setScroll(parseInt(b.dataset.scroll, 10)));
+  });
+  document.getElementById('slider').addEventListener('input', e => setScroll(parseInt(e.target.value, 10)));
+</script>
+
+</body>
+</html>

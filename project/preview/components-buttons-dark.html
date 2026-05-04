@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Buttons dark</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  body { background: #0B1F1D; }
+  .card { color: #FAFAF7; }
+  .row { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; margin-bottom: 18px; }
+  .row:last-child { margin-bottom: 0; }
+  .btn { font-family: var(--font-sans); font-weight: 600; font-size: 14px; padding: 11px 20px; border-radius: 8px; cursor: pointer; border: 1.5px solid transparent; line-height: 1; display: inline-flex; align-items: center; gap: 8px; }
+  .primary { background: #F36633; color: white; border-color: #F36633; }
+  .primary.hover { background: #F4824F; border-color: #F4824F; }
+  .secondary { background: transparent; color: #FAFAF7; border-color: #5A8580; }
+  .secondary.hover { background: #122E2B; border-color: #8FAEA9; }
+  .ghost { background: transparent; color: #FAFAF7; border-color: transparent; }
+  .ghost.hover { background: #122E2B; }
+  .label { color: #B5C2C0; }
+</style></head><body>
+<div class="card">
+  <div class="label" style="margin-bottom: 14px;">Buttons · dark mode</div>
+  <div class="row">
+    <button class="btn primary">Primary action</button>
+    <button class="btn primary hover">Hover</button>
+    <button class="btn secondary">Secondary</button>
+    <button class="btn secondary hover">Hover</button>
+    <button class="btn ghost">Ghost</button>
+    <button class="btn ghost hover">Hover</button>
+  </div>
+</div>
+</body></html>

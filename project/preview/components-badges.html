@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Badges</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 14px; }
+  .row:last-child { margin-bottom: 0; }
+  .b { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-sans); font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 999px; border: 1px solid; }
+  .b.teal { background: #E8EFEE; color: #1F4F4A; border-color: #C5D5D2; }
+  .b.coral { background: #FEF3EE; color: #B43E15; border-color: #FCE2D2; }
+  .b.success { background: #E5F1EC; color: #2F7A55; border-color: #BFD9CC; }
+  .b.warn { background: #FBF1DC; color: #8B5F0E; border-color: #F0DFB0; }
+  .b.danger { background: #F9E2DA; color: #B43E15; border-color: #F1C4B4; }
+  .b.outline { background: transparent; color: #1F4F4A; border-color: #1F4F4A; }
+  .b .dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+  .lbl { font-family: var(--font-mono); font-size: 10px; color: var(--fg-subtle); }
+</style></head><body>
+<div class="card">
+  <div class="row">
+    <span class="b teal">Cardiology</span>
+    <span class="b coral">New</span>
+    <span class="b success"><span class="dot"></span>Registered</span>
+    <span class="b warn"><span class="dot"></span>Limited stock</span>
+    <span class="b danger"><span class="dot"></span>Out of stock</span>
+    <span class="b outline">EU-GMP</span>
+    <span class="lbl">12px / pill / 1px border</span>
+  </div>
+</div>
+</body></html>

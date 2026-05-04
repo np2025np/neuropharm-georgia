@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Light vs Dark</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+  .pane { padding: 24px; min-height: 200px; }
+  .pane.light { background: #FAFAF7; color: #1A1A1A; }
+  .pane.dark  { background: #0B1F1D; color: #FAFAF7; }
+  .pane h3 { font-family: var(--font-serif); font-size: 22px; margin: 0 0 8px; font-weight: 600; }
+  .pane.light h3 { color: #1F4F4A; }
+  .pane.dark  h3 { color: #FAFAF7; }
+  .btn { display: inline-block; padding: 10px 18px; border-radius: 8px; background: #F36633; color: white; font-weight: 600; font-size: 13px; margin-top: 14px; font-family: var(--font-sans); }
+  .pane p { font-size: 13px; line-height: 1.6; margin: 0; }
+  .label-mini { font-size: 10px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.7; margin-bottom: 8px; display: block; }
+</style></head><body>
+<div class="card">
+  <div class="split">
+    <div class="pane light">
+      <span class="label-mini">— Light mode</span>
+      <h3>Trusted medicines, imported with care.</h3>
+      <p>Off-white paper background. Charcoal ink. Coral activates.</p>
+      <a class="btn">View products</a>
+    </div>
+    <div class="pane dark">
+      <span class="label-mini" style="color:#F36633">— Dark mode</span>
+      <h3>Trusted medicines, imported with care.</h3>
+      <p>Deep teal-black background. Off-white text. Coral unchanged.</p>
+      <a class="btn">View products</a>
+    </div>
+  </div>
+</div>
+</body></html>

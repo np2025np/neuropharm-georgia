@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Multi-script</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 28px; }
+  .item { display: flex; flex-direction: column; gap: 4px; }
+  .lang { font-family: var(--font-sans); font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #F36633; }
+  .text { font-family: var(--font-serif); font-size: 22px; color: #1F4F4A; line-height: 1.25; font-weight: 600; }
+</style></head><body>
+<div class="card">
+  <div class="label" style="margin-bottom: 14px;">Noto Serif + Noto Sans · 4-script support</div>
+  <div class="grid">
+    <div class="item"><span class="lang">EN · English</span><span class="text">Trusted medicines</span></div>
+    <div class="item"><span class="lang">KA · ქართული</span><span class="text">სანდო მედიკამენტები</span></div>
+    <div class="item"><span class="lang">RU · Русский</span><span class="text">Надёжные лекарства</span></div>
+    <div class="item"><span class="lang">PT · Português</span><span class="text">Medicamentos confiáveis</span></div>
+  </div>
+</div>
+</body></html>

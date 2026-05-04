@@ -1,0 +1,277 @@
+/* ============================================================
+   Neuropharm Georgia — Color & Type Tokens
+   ============================================================
+   Light + dark mode. Trigger dark mode by adding
+   `data-theme="dark"` to <html> (or use prefers-color-scheme).
+   ============================================================ */
+
+/* Webfont loading via Google Fonts.
+   The brand requires Noto Serif (headings) and Noto Sans (body)
+   for multi-script support: Georgian, English, Russian, Portuguese.
+   Both are available with full Cyrillic + Georgian + Latin Ext glyph sets. */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&family=Noto+Sans:wght@400;500;600;700&display=swap');
+
+/* ---------- Brand palette (raw, do not use directly in components) ---------- */
+:root {
+  /* Primary — coral-orange (CTAs, accents, highlights) */
+  --np-coral-50:  #FEF3EE;
+  --np-coral-100: #FCE2D2;
+  --np-coral-200: #F9C2A2;
+  --np-coral-300: #F69E72;
+  --np-coral-400: #F4824F;
+  --np-coral-500: #F36633;   /* brand primary */
+  --np-coral-600: #DA4F1E;
+  --np-coral-700: #B43E15;
+
+  /* Secondary — dark teal (brand anchor, headings, header, footer, lockup) */
+  --np-teal-50:   #E8EFEE;
+  --np-teal-100:  #C5D5D2;
+  --np-teal-200:  #8FAEA9;
+  --np-teal-300:  #5A8580;
+  --np-teal-400:  #356762;
+  --np-teal-500:  #1F4F4A;   /* brand secondary */
+  --np-teal-600:  #163C38;
+  --np-teal-700:  #0E2926;
+  --np-teal-800:  #0B1F1D;   /* dark-mode bg */
+
+  /* Neutrals */
+  --np-paper:     #FAFAF7;   /* off-white */
+  --np-bone:      #F1F1EC;
+  --np-stone-100: #E5E5E0;   /* light borders */
+  --np-stone-200: #C9C9C2;
+  --np-stone-400: #8A8A82;
+  --np-stone-600: #4A4A45;
+  --np-ink:       #1A1A1A;   /* deep charcoal text */
+  --np-black:     #0A0A0A;
+
+  /* Semantic accents (used sparingly — pharmaceutical = restrained) */
+  --np-success:   #2F7A55;
+  --np-warning:   #C68A1E;
+  --np-danger:    #B43E15;
+  --np-info:      #356762;
+}
+
+/* ---------- Semantic tokens — LIGHT (default) ---------- */
+:root {
+  --bg:           var(--np-paper);
+  --bg-elevated:  #FFFFFF;
+  --bg-sunken:    var(--np-bone);
+  --bg-inverse:   var(--np-teal-800);
+
+  --fg:           var(--np-ink);
+  --fg-muted:     var(--np-stone-600);
+  --fg-subtle:    var(--np-stone-400);
+  --fg-on-brand:  var(--np-paper);
+  --fg-inverse:   var(--np-paper);
+
+  --brand:        var(--np-teal-500);
+  --brand-hover:  var(--np-teal-600);
+  --brand-soft:   var(--np-teal-50);
+
+  --accent:       var(--np-coral-500);
+  --accent-hover: var(--np-coral-600);
+  --accent-soft:  var(--np-coral-50);
+
+  --border:       var(--np-stone-100);
+  --border-strong: var(--np-stone-200);
+  --border-brand: var(--np-teal-500);
+
+  --focus-ring:   var(--np-coral-500);
+
+  /* Elevation — subtle, never heavy. Pharma-corporate: borders > shadows. */
+  --shadow-xs: 0 1px 2px rgba(15, 30, 28, 0.04);
+  --shadow-sm: 0 2px 6px rgba(15, 30, 28, 0.05), 0 1px 2px rgba(15, 30, 28, 0.04);
+  --shadow-md: 0 6px 16px rgba(15, 30, 28, 0.07), 0 2px 4px rgba(15, 30, 28, 0.04);
+  --shadow-lift: 0 10px 24px rgba(15, 30, 28, 0.08), 0 2px 6px rgba(15, 30, 28, 0.04);
+}
+
+/* ---------- Semantic tokens — DARK ---------- */
+:root[data-theme="dark"] {
+  --bg:           var(--np-teal-800);
+  --bg-elevated:  var(--np-teal-700);
+  --bg-sunken:    #071614;
+  --bg-inverse:   var(--np-paper);
+
+  --fg:           var(--np-paper);
+  --fg-muted:     #B5C2C0;
+  --fg-subtle:    #7E8C89;
+  --fg-on-brand:  var(--np-paper);
+  --fg-inverse:   var(--np-ink);
+
+  --brand:        #5A8580;     /* desaturated teal reads on dark */
+  --brand-hover:  #8FAEA9;
+  --brand-soft:   #122E2B;
+
+  --accent:       var(--np-coral-500);   /* coral stays the same — chosen for contrast */
+  --accent-hover: var(--np-coral-400);
+  --accent-soft:  #2A1A12;
+
+  --border:       #1A3936;
+  --border-strong: #2A4F4B;
+  --border-brand: var(--np-coral-500);
+
+  --focus-ring:   var(--np-coral-400);
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.45), 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.55), 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-lift: 0 10px 24px rgba(0, 0, 0, 0.6), 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* ---------- Type tokens ---------- */
+:root {
+  --font-serif: 'Noto Serif', Georgia, 'Times New Roman', serif;
+  --font-sans:  'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono:  ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* Display sizes — generous, GSK-style */
+  --fs-display: clamp(2.5rem, 4.5vw + 1rem, 4rem);   /* 40 → 64px */
+  --fs-h1:      clamp(2rem,   3vw + 1rem,   3rem);    /* 32 → 48px */
+  --fs-h2:      clamp(1.5rem, 1.8vw + 1rem, 2.25rem); /* 24 → 36px */
+  --fs-h3:      1.5rem;     /* 24px */
+  --fs-h4:      1.25rem;    /* 20px */
+  --fs-lead:    1.25rem;    /* 20px — intro paragraphs */
+  --fs-body:    1rem;       /* 16px — base */
+  --fs-body-lg: 1.125rem;   /* 18px — long-form */
+  --fs-small:   0.875rem;   /* 14px */
+  --fs-micro:   0.75rem;    /* 12px — labels, eyebrows */
+
+  --lh-tight:   1.15;
+  --lh-snug:    1.3;
+  --lh-normal:  1.6;
+  --lh-relaxed: 1.75;
+
+  --tracking-tight:  -0.01em;
+  --tracking-normal: 0;
+  --tracking-wide:   0.06em;     /* eyebrow / tag */
+  --tracking-wider:  0.18em;     /* GEORGIA-style spaced caps */
+}
+
+/* ---------- Spacing scale ---------- */
+:root {
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  48px;
+  --space-8:  64px;
+  --space-9:  96px;
+  --space-10: 128px;
+  --space-11: 160px;          /* section breathing */
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-xl: 16px;
+  --radius-pill: 999px;
+
+  --container-narrow: 760px;
+  --container-base:   1080px;
+  --container-wide:   1280px;
+
+  --transition-fast: 120ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition:      200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 360ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================================
+   Element-level defaults
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-serif);
+  color: var(--brand);
+  font-weight: 600;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  margin: 0;
+  text-wrap: balance;
+}
+
+:root[data-theme="dark"] h1,
+:root[data-theme="dark"] h2,
+:root[data-theme="dark"] h3,
+:root[data-theme="dark"] h4 {
+  color: var(--fg);          /* dark mode: headings render in off-white, not muted teal */
+}
+
+h1 { font-size: var(--fs-h1); font-weight: 700; }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+h4 { font-size: var(--fs-h4); }
+
+p {
+  margin: 0 0 1em 0;
+  text-wrap: pretty;
+  max-width: 68ch;
+}
+
+p.lead {
+  font-size: var(--fs-lead);
+  color: var(--fg-muted);
+  font-weight: 400;
+  line-height: var(--lh-normal);
+}
+
+a {
+  color: var(--brand);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color var(--transition-fast);
+}
+a:hover { color: var(--accent); }
+
+/* Eyebrow — small spaced caps, used everywhere as section labels */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--accent);
+}
+
+/* "Bracketed" eyebrow — echoes the GEORGIA marks in the logo */
+.eyebrow-bracketed {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-sans);
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--brand);
+}
+.eyebrow-bracketed::before,
+.eyebrow-bracketed::after {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: currentColor;
+}
+
+::selection { background: var(--np-coral-200); color: var(--np-ink); }
+:root[data-theme="dark"] ::selection { background: var(--np-coral-700); color: var(--np-paper); }
+
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: 2px;
+}

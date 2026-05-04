@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Forms</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  label { display: block; font-size: 12px; font-weight: 600; color: #1F4F4A; margin-bottom: 6px; font-family: var(--font-sans); }
+  input, select { width: 100%; padding: 10px 12px; border: 1px solid #E5E5E0; border-radius: 6px; background: white; font-family: var(--font-sans); font-size: 14px; color: #1A1A1A; transition: border-color 120ms; box-sizing: border-box; }
+  input:focus { outline: none; border-color: #F36633; box-shadow: 0 0 0 3px rgba(243,102,51,0.15); }
+  .focused { border-color: #F36633 !important; box-shadow: 0 0 0 3px rgba(243,102,51,0.15); }
+  .help { font-size: 11px; color: #8A8A82; margin-top: 4px; }
+  .err input { border-color: #B43E15; }
+  .err .help { color: #B43E15; }
+</style></head><body>
+<div class="card">
+  <div class="grid">
+    <div>
+      <label>Full name</label>
+      <input value="Nino Beridze">
+      <div class="help">As shown on identity document</div>
+    </div>
+    <div>
+      <label>Email · focused</label>
+      <input class="focused" value="n.beridze@hospital.ge">
+      <div class="help">1.5px coral focus + soft halo</div>
+    </div>
+    <div>
+      <label>License number</label>
+      <input placeholder="GE-PHARM-…">
+      <div class="help">Optional</div>
+    </div>
+    <div class="err">
+      <label>License number · error</label>
+      <input value="GE-XXX">
+      <div class="help">Format must match GE-PHARM-NNNN</div>
+    </div>
+  </div>
+</div>
+</body></html>

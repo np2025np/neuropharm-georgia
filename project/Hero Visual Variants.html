@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Hero visual variants — Neuropharm Georgia</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="ui_kits/website/styles.css">
+<link rel="stylesheet" href="homepage.css">
+<style>
+  body { background: var(--bg); color: var(--fg); font-family: var(--font-sans); margin: 0; padding: 48px 32px 80px; }
+  .page-head { max-width: 1320px; margin: 0 auto 40px; }
+  .page-head h1 { font-family: var(--font-serif); font-size: 36px; margin: 0 0 8px; color: var(--brand); }
+  .page-head p { color: var(--fg-muted); max-width: 64ch; margin: 0; font-size: 15px; line-height: 1.55; }
+  .grid {
+    max-width: 1320px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .card { display: flex; flex-direction: column; gap: 14px; }
+  .label-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+  .label-row .name { font-family: var(--font-serif); font-size: 22px; color: var(--brand); }
+  .label-row .key { font-family: var(--font-mono, ui-monospace, Menlo, monospace); font-size: 11px; color: var(--fg-muted); letter-spacing: 1px; text-transform: uppercase; }
+  .stage {
+    aspect-ratio: 5 / 6;
+    border-radius: 8px;
+    background: linear-gradient(160deg, #F4F0E8, #EAE3D5);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    position: relative;
+  }
+  .stage svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .desc { font-size: 13px; line-height: 1.55; color: var(--fg-muted); }
+  .desc strong { color: var(--fg); font-weight: 600; }
+  @media (max-width: 1100px) { .grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="page-head">
+  <h1>Hero visual — three directions</h1>
+  <p>Pick one. All three respect the brand palette (deep teal + coral) and read at small scale. Same hero copy, same layout — only the right-hand artwork swaps.</p>
+</div>
+
+<div class="grid">
+  <div class="card">
+    <div class="label-row"><span class="name">A. Network</span><span class="key">network</span></div>
+    <div class="stage" id="stage-a"></div>
+    <div class="desc"><strong>Concept:</strong> Molecular graph + dashed supply arc. The current default — abstract, scientific, noncommittal about geography.</div>
+  </div>
+  <div class="card">
+    <div class="label-row"><span class="name">B. Supply chain</span><span class="key">supply</span></div>
+    <div class="stage" id="stage-b"></div>
+    <div class="desc"><strong>Concept:</strong> Two source clusters (Europe + India) flowing into a single Georgia node, with EU-GMP checkpoint markers. Most literal to what Neuropharm does.</div>
+  </div>
+  <div class="card">
+    <div class="label-row"><span class="name">C. Hex lattice</span><span class="key">lattice</span></div>
+    <div class="stage" id="stage-c"></div>
+    <div class="desc"><strong>Concept:</strong> Hexagonal molecular grid with coral path of activated cells. Most "scientific/cellular" — feels closer to research pharma than logistics.</div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="ui_kits/website/Primitives.jsx"></script>
+<script type="text/babel" src="homepage.visuals.jsx"></script>
+
+<script type="text/babel">
+ReactDOM.createRoot(document.getElementById('stage-a')).render(<HeroVisual/>);
+ReactDOM.createRoot(document.getElementById('stage-b')).render(<HeroVisualSupplyChain/>);
+ReactDOM.createRoot(document.getElementById('stage-c')).render(<HeroVisualHexLattice/>);
+</script>
+</body>
+</html>

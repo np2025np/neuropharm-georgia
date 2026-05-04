@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300" font-family="&#39;Noto Sans&#39;, system-ui, sans-serif">
+  <g stroke="#1F4F4A" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    
+    <g transform="translate(120, 10) scale(0.83)" stroke-width="3.6">
+      <path d="M118 30 C 90 22, 60 30, 46 50 C 32 64, 28 82, 36 96 C 28 108, 36 124, 52 130 C 60 142, 78 148, 96 142 C 104 150, 116 150, 118 142 Z"></path>
+      <path d="M122 30 C 150 22, 180 30, 194 50 C 208 64, 212 82, 204 96 C 212 108, 204 124, 188 130 C 180 142, 162 148, 144 142 C 136 150, 124 150, 122 142 Z"></path>
+      <path d="M120 30 L120 150" stroke-width="4"></path>
+      <path d="M108 150 C 112 158, 128 158, 132 150"></path>
+      <path d="M58 60 C 70 56, 80 64, 86 76"></path>
+      <path d="M52 84 C 66 80, 78 86, 90 96"></path>
+      <path d="M50 110 C 64 108, 78 116, 92 116"></path>
+      <path d="M70 124 C 84 124, 96 130, 102 138"></path>
+      <path d="M80 50 C 90 50, 98 56, 104 64"></path>
+      <path d="M134 50 L 150 50 L 150 64 L 168 64"></path>
+      <path d="M134 76 L 156 76 L 156 88 L 178 88"></path>
+      <path d="M134 96 L 146 96 L 146 108 L 168 108 L 168 96 L 184 96"></path>
+      <path d="M134 116 L 152 116 L 152 128 L 174 128"></path>
+      <path d="M134 138 L 144 138 L 144 130"></path>
+      <path d="M180 60 L 196 60"></path>
+      <path d="M188 76 L 200 76 L 200 90"></path>
+      <path d="M188 116 L 198 116"></path>
+      <g fill="#1F4F4A" stroke="none">
+        <circle cx="58" cy="60" r="3.6"></circle>
+        <circle cx="86" cy="76" r="3.6"></circle>
+        <circle cx="52" cy="84" r="3.6"></circle>
+        <circle cx="90" cy="96" r="3.6"></circle>
+        <circle cx="50" cy="110" r="3.6"></circle>
+        <circle cx="92" cy="116" r="3.6"></circle>
+        <circle cx="70" cy="124" r="3.6"></circle>
+        <circle cx="80" cy="50" r="3.6"></circle>
+        <circle cx="104" cy="64" r="3.6"></circle>
+        <circle cx="134" cy="50" r="3.6"></circle>
+        <circle cx="168" cy="64" r="3.6"></circle>
+        <circle cx="134" cy="76" r="3.6"></circle>
+        <circle cx="178" cy="88" r="3.6"></circle>
+        <circle cx="184" cy="96" r="3.6"></circle>
+        <circle cx="134" cy="116" r="3.6"></circle>
+        <circle cx="174" cy="128" r="3.6"></circle>
+        <circle cx="196" cy="60" r="3.6"></circle>
+        <circle cx="200" cy="90" r="3.6"></circle>
+        <circle cx="198" cy="116" r="3.6"></circle>
+        <circle cx="134" cy="138" r="3.6"></circle>
+      </g>
+    </g>
+  </g>
+  
+  <text x="240" y="232" text-anchor="middle" font-size="44" font-weight="700" fill="#1F4F4A" letter-spacing="2.5">NEUROPHARM</text>
+  <line x1="118" y1="262" x2="186" y2="262" stroke="#1F4F4A" stroke-width="1.4"></line>
+  <text x="240" y="268" text-anchor="middle" font-size="15" font-weight="500" fill="#1F4F4A" letter-spacing="6.5">GEORGIA</text>
+  <line x1="294" y1="262" x2="362" y2="262" stroke="#1F4F4A" stroke-width="1.4"></line>
+</svg>

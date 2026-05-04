@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Semantic colors</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .row { display: flex; align-items: center; gap: 14px; padding: 12px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-elevated); }
+  .swatch { width: 36px; height: 36px; border-radius: 6px; flex-shrink: 0; }
+  .name { font-family: var(--font-serif); font-size: 16px; color: var(--brand); }
+  .hex { font-family: var(--font-mono); font-size: 11px; color: var(--fg-muted); }
+  .meta { display: flex; flex-direction: column; }
+</style></head><body>
+<div class="card">
+  <div class="label" style="margin-bottom: 14px;">Semantic — used sparingly</div>
+  <div class="grid">
+    <div class="row"><div class="swatch" style="background:#2F7A55"></div><div class="meta"><span class="name">Success</span><span class="hex">#2F7A55</span></div></div>
+    <div class="row"><div class="swatch" style="background:#C68A1E"></div><div class="meta"><span class="name">Warning</span><span class="hex">#C68A1E</span></div></div>
+    <div class="row"><div class="swatch" style="background:#B43E15"></div><div class="meta"><span class="name">Danger</span><span class="hex">#B43E15</span></div></div>
+    <div class="row"><div class="swatch" style="background:#356762"></div><div class="meta"><span class="name">Info</span><span class="hex">#356762</span></div></div>
+  </div>
+</div>
+</body></html>

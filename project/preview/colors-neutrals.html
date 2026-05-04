@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Neutrals</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .row { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+  .step { aspect-ratio: 1 / 1.2; border-radius: 6px; padding: 8px; display: flex; flex-direction: column; justify-content: space-between; font-family: var(--font-mono); font-size: 10px; }
+  .step .name { font-family: var(--font-sans); font-weight: 600; font-size: 11px; }
+  .step .hex { opacity: 0.85; }
+  .l { color: #1A1A1A; } .d { color: #FAFAF7; }
+</style></head><body>
+<div class="card">
+  <div class="label" style="margin-bottom: 14px;">Neutrals · Paper, bone, stone, ink</div>
+  <div class="row">
+    <div class="step l" style="background:#FAFAF7; border: 1px solid #E5E5E0;"><span class="name">Paper</span><span class="hex">#FAFAF7</span></div>
+    <div class="step l" style="background:#F1F1EC; border: 1px solid #E5E5E0;"><span class="name">Bone</span><span class="hex">#F1F1EC</span></div>
+    <div class="step l" style="background:#E5E5E0;"><span class="name">Stone 100</span><span class="hex">#E5E5E0</span></div>
+    <div class="step l" style="background:#C9C9C2;"><span class="name">Stone 200</span><span class="hex">#C9C9C2</span></div>
+    <div class="step d" style="background:#8A8A82;"><span class="name">Stone 400</span><span class="hex">#8A8A82</span></div>
+    <div class="step d" style="background:#4A4A45;"><span class="name">Stone 600</span><span class="hex">#4A4A45</span></div>
+    <div class="step d" style="background:#1A1A1A;"><span class="name">Ink</span><span class="hex">#1A1A1A</span></div>
+  </div>
+</div>
+</body></html>

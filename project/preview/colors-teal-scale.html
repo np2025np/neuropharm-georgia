@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Teal scale</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .scale { display: grid; grid-template-columns: repeat(9, 1fr); gap: 4px; }
+  .step { aspect-ratio: 1 / 1.2; border-radius: 6px; padding: 8px; display: flex; flex-direction: column; justify-content: space-between; font-family: var(--font-mono); font-size: 10px; }
+  .step .num { font-weight: 600; }
+  .step .hex { opacity: 0.85; }
+  .l { color: #1A1A1A; } .d { color: #FAFAF7; }
+</style></head><body>
+<div class="card">
+  <div class="label" style="margin-bottom: 14px;">Teal · Secondary scale</div>
+  <div class="scale">
+    <div class="step l" style="background:#E8EFEE"><span class="num">50</span><span class="hex">#E8EFEE</span></div>
+    <div class="step l" style="background:#C5D5D2"><span class="num">100</span><span class="hex">#C5D5D2</span></div>
+    <div class="step l" style="background:#8FAEA9"><span class="num">200</span><span class="hex">#8FAEA9</span></div>
+    <div class="step d" style="background:#5A8580"><span class="num">300</span><span class="hex">#5A8580</span></div>
+    <div class="step d" style="background:#356762"><span class="num">400</span><span class="hex">#356762</span></div>
+    <div class="step d" style="background:#1F4F4A; outline: 2px solid #F36633; outline-offset: -2px;"><span class="num">500</span><span class="hex">#1F4F4A</span></div>
+    <div class="step d" style="background:#163C38"><span class="num">600</span><span class="hex">#163C38</span></div>
+    <div class="step d" style="background:#0E2926"><span class="num">700</span><span class="hex">#0E2926</span></div>
+    <div class="step d" style="background:#0B1F1D"><span class="num">800</span><span class="hex">#0B1F1D</span></div>
+  </div>
+</div>
+</body></html>
