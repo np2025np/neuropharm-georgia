@@ -80,7 +80,8 @@
   margin-top: 16px;
   align-self: flex-start;
 }
-.np-mobile-langs button {
+.np-mobile-langs button,
+.np-mobile-langs a {
   font-family: var(--font-sans);
   font-size: 12px;
   font-weight: 600;
@@ -91,8 +92,13 @@
   color: var(--fg-muted);
   cursor: pointer;
   border-radius: 999px;
+  text-decoration: none;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
 }
-.np-mobile-langs button.is-on { background: var(--accent); color: white; }
+.np-mobile-langs button.is-on,
+.np-mobile-langs a.is-on { background: var(--accent); color: white; }
 
 /* Hero */
 .np-home-hero {

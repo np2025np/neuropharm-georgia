@@ -392,7 +392,8 @@ a:hover { color: var(--accent); }
   border: 1px solid var(--border);
 }
 :root[data-theme="dark"] .np-lang { background: var(--bg-sunken); border-color: var(--border); }
-.np-lang button {
+.np-lang button,
+.np-lang a {
   font-family: var(--font-sans);
   font-size: 11px;
   font-weight: 600;
@@ -404,9 +405,15 @@ a:hover { color: var(--accent); }
   cursor: pointer;
   border-radius: 999px;
   transition: all var(--transition-fast);
+  text-decoration: none;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
 }
-.np-lang button.is-on { background: var(--brand); color: var(--fg-on-brand); }
-:root[data-theme="dark"] .np-lang button.is-on { background: var(--accent); color: white; }
+.np-lang button.is-on,
+.np-lang a.is-on { background: var(--brand); color: var(--fg-on-brand); }
+:root[data-theme="dark"] .np-lang button.is-on,
+:root[data-theme="dark"] .np-lang a.is-on { background: var(--accent); color: white; }
 .np-mode-toggle {
   width: 36px;
   height: 36px;
