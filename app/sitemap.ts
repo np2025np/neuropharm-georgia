@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
-import { LANGS, type Lang } from '@/lib/i18n';
-import { features } from '@/lib/features';
+import type { Lang } from '@/lib/i18n';
+import { features, enabledLocales } from '@/lib/features';
 import { hreflangsFor, pathForPage, SITE_URL, type PageId } from '@/lib/seo';
 
 const ALL_PAGES: { id: PageId; priority: number }[] = [
@@ -19,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
   const entries: MetadataRoute.Sitemap = [];
 
-  for (const lang of LANGS as readonly Lang[]) {
+  for (const lang of enabledLocales as readonly Lang[]) {
     for (const { id, priority } of PAGES) {
       const path = pathForPage(lang, id);
       entries.push({

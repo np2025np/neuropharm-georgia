@@ -66,7 +66,7 @@ const themeInitScript = `
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
-      lang="ka"
+      lang="en"
       suppressHydrationWarning
       className={`${notoSerif.variable} ${notoSans.variable} ${notoSerifGeorgian.variable} ${notoSansGeorgian.variable}`}
     >

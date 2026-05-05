@@ -4,10 +4,10 @@ import { useRef, useState, type FormEvent } from 'react';
 import type { PagesT } from '@/lib/i18n';
 import { ArrowRight } from '@/components/icons';
 
-type ContactT = PagesT['contact'];
+type ContactFormT = PagesT['contact']['form'];
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
-export function ContactForm({ t }: { t: ContactT }) {
+export function ContactForm({ t }: { t: ContactFormT }) {
   const [status, setStatus] = useState<Status>('idle');
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -51,35 +51,35 @@ export function ContactForm({ t }: { t: ContactT }) {
     <form ref={formRef} className="np-contact-form" onSubmit={onSubmit} noValidate>
       <div className="row two">
         <label>
-          <span>{t.form.name}</span>
+          <span>{t.name}</span>
           <input type="text" name="name" required maxLength={200} disabled={submitting} />
         </label>
         <label>
-          <span>{t.form.company}</span>
+          <span>{t.company}</span>
           <input type="text" name="company" maxLength={200} disabled={submitting} />
         </label>
       </div>
       <div className="row two">
         <label>
-          <span>{t.form.email}</span>
+          <span>{t.email}</span>
           <input type="email" name="email" required maxLength={254} disabled={submitting} />
         </label>
         <label>
-          <span>{t.form.phone}</span>
+          <span>{t.phone}</span>
           <input type="tel" name="phone" maxLength={50} disabled={submitting} />
         </label>
       </div>
       <label>
-        <span>{t.form.serviceLabel}</span>
+        <span>{t.serviceLabel}</span>
         <select name="serviceType" defaultValue="" disabled={submitting}>
-          <option value="" disabled>{t.form.servicePlaceholder}</option>
-          {t.form.services.map((s, i) => (
+          <option value="" disabled>{t.servicePlaceholder}</option>
+          {t.services.map((s, i) => (
             <option key={i} value={s}>{s}</option>
           ))}
         </select>
       </label>
       <label>
-        <span>{t.form.message}</span>
+        <span>{t.message}</span>
         <textarea name="message" rows={5} required maxLength={5000} disabled={submitting} />
       </label>
 
@@ -91,14 +91,14 @@ export function ContactForm({ t }: { t: ContactT }) {
         </label>
       </div>
 
-      <p className="consent">{t.form.consent}</p>
+      <p className="consent">{t.consent}</p>
       <div className="actions">
         <button type="submit" className="np-btn np-btn-primary np-btn-lg" disabled={submitting}>
-          {submitting ? t.form.submitting : t.form.submit}
+          {submitting ? t.submitting : t.submit}
           <span className="np-btn-icon"><ArrowRight /></span>
         </button>
-        {status === 'success' && <span className="form-msg form-msg-success">{t.form.success}</span>}
-        {status === 'error' && <span className="form-msg form-msg-error">{t.form.error}</span>}
+        {status === 'success' && <span className="form-msg form-msg-success">{t.success}</span>}
+        {status === 'error' && <span className="form-msg form-msg-error">{t.error}</span>}
       </div>
     </form>
   );

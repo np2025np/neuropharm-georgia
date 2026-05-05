@@ -1,5 +1,7 @@
 import Link from 'next/link';
-import { type Lang, LANGS, homeT } from '@/lib/i18n';
+import { type Lang, homeT } from '@/lib/i18n';
+import { enabledLocales } from '@/lib/features';
+import { contact } from '@/lib/contact';
 import { BrainMark } from './icons';
 
 export function Footer({ lang }: { lang: Lang }) {
@@ -30,9 +32,10 @@ export function Footer({ lang }: { lang: Lang }) {
           <h4>{t.footer.contact}</h4>
           <ul>
             <li style={{ opacity: 0.85, fontFamily: 'var(--font-sans)', fontSize: 14, lineHeight: 1.6 }}>
-              {t.footer.address}
+              {contact.address[lang]}
             </li>
-            <li><a href="mailto:info@neuropharmgeorgia.com">info@neuropharmgeorgia.com</a></li>
+            <li><a href={contact.email.href}>{contact.email.display}</a></li>
+            <li><a href={contact.phone.href}>{contact.phone.display}</a></li>
           </ul>
         </div>
         <div>
@@ -43,7 +46,7 @@ export function Footer({ lang }: { lang: Lang }) {
             </li>
           </ul>
           <div className="np-lang" style={{ marginTop: 16, alignSelf: 'flex-start' }}>
-            {LANGS.map((L) => (
+            {enabledLocales.map((L) => (
               <Link key={L} href={`/${L}`} className={lang === L ? 'is-on' : ''} prefetch={false}>
                 {L.toUpperCase()}
               </Link>

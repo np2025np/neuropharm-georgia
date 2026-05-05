@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { LANGS, type Lang } from './i18n';
+import { DEFAULT_LANG, type Lang } from './i18n';
+import { enabledLocales } from './features';
 
 export const SITE_URL = 'https://neuropharmgeorgia.com';
 export const SITE_NAME = 'Neuropharm Georgia';
@@ -111,11 +112,11 @@ export function pathForPage(lang: Lang, page: PageId): string {
   return `/${lang}/${ROUTE_FOR_PAGE[page]}`;
 }
 
-/** Builds alternates.languages with hreflang entries for all 4 locales + x-default. */
+/** Builds alternates.languages with hreflang entries for all enabled locales + x-default. */
 export function hreflangsFor(page: PageId): Record<string, string> {
   const langs: Record<string, string> = {};
-  for (const L of LANGS) langs[L] = pathForPage(L, page);
-  langs['x-default'] = pathForPage('ka', page);
+  for (const L of enabledLocales) langs[L] = pathForPage(L, page);
+  langs['x-default'] = pathForPage(DEFAULT_LANG, page);
   return langs;
 }
 
@@ -139,7 +140,7 @@ export function buildPageMetadata({
   const fullTitle = isHome ? siteTitle : `${pageTitleNative} — ${SITE_NAME}`;
 
   const canonical = pathForPage(lang, page);
-  const alternateLocales = LANGS.filter((L) => L !== lang).map((L) => LOCALE_TAG[L]);
+  const alternateLocales = enabledLocales.filter((L) => L !== lang).map((L) => LOCALE_TAG[L]);
 
   return {
     title: fullTitle,

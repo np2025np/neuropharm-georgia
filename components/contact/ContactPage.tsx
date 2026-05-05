@@ -1,33 +1,34 @@
-import type { PagesT } from '@/lib/i18n';
+import type { Lang, PagesT } from '@/lib/i18n';
+import { contact } from '@/lib/contact';
 import { PageHero } from '@/components/PageHero';
 import { ContactForm } from './ContactForm';
 
 type ContactT = PagesT['contact'];
 
-export function ContactInfo({ t }: { t: ContactT }) {
+export function ContactInfo({ t, lang }: { t: ContactT; lang: Lang }) {
   return (
     <aside className="np-contact-info">
       <h3>{t.info.title}</h3>
       <dl>
         <div>
           <dt>{t.info.addressLabel}</dt>
-          <dd className="multiline">{t.info.address}</dd>
+          <dd className="multiline">{contact.address[lang]}</dd>
         </div>
         <div>
           <dt>{t.info.emailLabel}</dt>
-          <dd><a href={`mailto:${t.info.email}`}>{t.info.email}</a></dd>
+          <dd><a href={contact.email.href}>{contact.email.display}</a></dd>
         </div>
         <div>
           <dt>{t.info.phoneLabel}</dt>
-          <dd>{t.info.phone}</dd>
+          <dd><a href={contact.phone.href}>{contact.phone.display}</a></dd>
         </div>
         <div>
           <dt>{t.info.hoursLabel}</dt>
-          <dd className="multiline">{t.info.hours}</dd>
+          <dd className="multiline">{`${contact.hours[lang]}\n${contact.hours.time}`}</dd>
         </div>
         <div>
           <dt>{t.info.licenseLabel}</dt>
-          <dd className="mono">{t.info.license}</dd>
+          <dd className="mono">{contact.license}</dd>
         </div>
       </dl>
     </aside>
@@ -69,14 +70,14 @@ export function TbilisiMap({ caption }: { caption: string }) {
   );
 }
 
-export function ContactPage({ pT }: { pT: ContactT }) {
+export function ContactPage({ pT, lang }: { pT: ContactT; lang: Lang }) {
   return (
     <main>
       <PageHero eyebrow={pT.eyebrow} headline={pT.headline} sub={pT.sub} />
       <section className="np-section np-contact-section" data-screen-label="01 Form + Info">
         <div className="np-contact-grid">
-          <ContactForm t={pT} />
-          <ContactInfo t={pT} />
+          <ContactForm t={pT.form} />
+          <ContactInfo t={pT} lang={lang} />
         </div>
       </section>
       <section className="np-section np-contact-mapsec" data-screen-label="02 Map">

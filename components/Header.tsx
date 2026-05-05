@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { type Lang, LANGS, homeT } from '@/lib/i18n';
-import { features } from '@/lib/features';
+import { type Lang, homeT } from '@/lib/i18n';
+import { features, enabledLocales } from '@/lib/features';
 import { BrainMark } from './icons';
 import { ThemeToggle } from './ThemeToggle';
 
@@ -90,7 +90,7 @@ export function Header({ lang }: { lang: Lang }) {
 function DesktopLangs({ current }: { current: Lang }) {
   return (
     <div className="np-lang np-lang-desktop">
-      {LANGS.map((L) => (
+      {enabledLocales.map((L) => (
         <Link key={L} href={`/${L}`} className={current === L ? 'is-on' : ''} prefetch={false}>
           {L.toUpperCase()}
         </Link>
@@ -102,7 +102,7 @@ function DesktopLangs({ current }: { current: Lang }) {
 function MobileLangs({ current, onPick }: { current: Lang; onPick: () => void }) {
   return (
     <div className="np-mobile-langs">
-      {LANGS.map((L) => (
+      {enabledLocales.map((L) => (
         <Link key={L} href={`/${L}`} className={current === L ? 'is-on' : ''} onClick={onPick} prefetch={false}>
           {L.toUpperCase()}
         </Link>

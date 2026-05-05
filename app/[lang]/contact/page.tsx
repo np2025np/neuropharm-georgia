@@ -18,6 +18,7 @@ export async function generateMetadata({
 export default async function Contact({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   if (!isLang(lang)) notFound();
-  const pT = pagesT[lang as Lang].contact;
-  return <ContactPage pT={pT} />;
+  const typed = lang as Lang;
+  const pT = pagesT[typed].contact;
+  return <ContactPage pT={pT} lang={typed} />;
 }
