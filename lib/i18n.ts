@@ -74,10 +74,10 @@ export type PagesT = {
     cta: { title: string; body: string; button: string };
   };
   sourcing: {
-    eyebrow: string; headline: string; sub: string; mapCaption: string;
+    eyebrow: string; headline: string; sub: string[]; mapCaption: string;
     regionA: {
       eyebrow: string; title: string; body: string; body2: string;
-      countries: string[]; points: string[];
+      points: string[];
     };
     regionB: {
       eyebrow: string; title: string; body: string; body2: string;

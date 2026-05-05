@@ -33,7 +33,6 @@ function SourcingRegion({
   labels: Labels;
   reverse?: boolean;
 }) {
-  const countries = 'countries' in pT ? pT.countries : undefined;
   const certifications = 'certifications' in pT ? pT.certifications : undefined;
   return (
     <section className={`np-region-block ${reverse ? 'is-reverse' : ''}`}>
@@ -45,14 +44,6 @@ function SourcingRegion({
           <p>{pT.body2}</p>
         </div>
         <div className="aside">
-          {countries && (
-            <div className="np-tag-list">
-              <div className="lbl">{labels.countries}</div>
-              <div className="tags">
-                {countries.map((c, i) => <span className="tag" key={i}>{c}</span>)}
-              </div>
-            </div>
-          )}
           {certifications && (
             <div className="np-tag-list">
               <div className="lbl">{labels.certifications}</div>
