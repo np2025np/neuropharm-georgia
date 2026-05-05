@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import { homeT, isLang, type Lang } from '@/lib/i18n';
+import { features } from '@/lib/features';
 import {
   HomeHero,
   TrustStrip,
@@ -25,7 +26,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
       <AboutPreview t={t} lang={typed} />
       <QualityBand t={t} />
       <PartnersCTA t={t} lang={typed} />
-      <NewsGrid t={t} />
+      {features.news && <NewsGrid t={t} />}
     </>
   );
 }

@@ -141,7 +141,7 @@ export const homeT: Record<Lang, HomeT> = {
     quality: {
       eyebrow: '05 — ხარისხი და შესაბამისობა',
       headline: 'ხარისხი იწყება წარმოებიდან, არა საწყობიდან',
-      lead: 'ჩვენი ოპერაციული პრინციპები შემოწმების ყოველ წერტილში: მომწოდებლის შერჩევიდან რეგულატორულ ანგარიშგებამდე და ლოგისტიკურ ჯაჭვამდე.',
+      lead: 'ჩვენი ოპერაციული სტანდარტები უზრუნველყოფს მკაცრ კონტროლს თითოეულ ეტაპზე — მომწოდებლის შერჩევიდან რეგულატორულ შესაბამისობამდე და ლოგისტიკური ჯაჭვის მართვამდე. ყოველი პროცესი აგებულია სიზუსტეზე, გამჭვირვალობასა და სტაბილურობაზე, რათა საბოლოო პროდუქტმა შეინარჩუნოს უმაღლესი ხარისხი.',
       cols: [
         { title: 'ხარისხის სტანდარტები', body: 'ჩვენი მომწოდებლები მუშაობენ EU-GMP ან ეკვივალენტური სერტიფიცირებით; ყოველი მიწოდება გადის შემოსასვლელ კონტროლს.' },
         { title: 'რეგულატორული შესაბამისობა', body: 'სრული დოკუმენტაცია საქართველოს მარეგულირებელი სტანდარტების შესაბამისად — იმპორტის ლიცენზიიდან ფარმაცევტულ ანგარიშგებამდე.' },
@@ -150,8 +150,8 @@ export const homeT: Record<Lang, HomeT> = {
     },
     partners: {
       eyebrow: '06 — პარტნიორებისთვის',
-      headline: 'გახდი ჩვენი პარტნიორი',
-      lead: 'ფარმაციებისთვის, აფთიაქების ქსელებისთვის, საავადმყოფოებისთვის და კლინიკური ცენტრებისთვის — გვითხარით რა გჭირდებათ და გავაერთიანებთ ერთ მიმდინარე მომარაგებას.',
+      headline: 'გახდით ჩვენი პარტნიორი',
+      lead: 'ფარმაცევტული კომპანიებისთვის, აფთიაქების ქსელებისთვის, საავადმყოფოებისა და კლინიკური ცენტრებისთვის ვთავაზობთ მოქნილ და საიმედო თანამშრომლობას. გვითხარით თქვენი საჭიროებები და ჩვენ შევიმუშავებთ ერთიან, სტაბილურ და უწყვეტ მომარაგების სქემას, რომელიც მორგებული იქნება თქვენს ოპერაციულ მოთხოვნებზე.',
       cta: 'გაგზავნე მოთხოვნა',
     },
     news: {
@@ -214,8 +214,8 @@ export const homeT: Record<Lang, HomeT> = {
     },
     quality: {
       eyebrow: '05 — Quality & compliance',
-      headline: 'Quality starts at the factory, not the warehouse',
-      lead: 'Our operating principles meet you at every checkpoint — from supplier selection through regulatory reporting and onward to logistics.',
+      headline: 'Quality Begins at Manufacturing, Not at the Warehouse',
+      lead: 'Our operational standards ensure rigorous control at every stage — from supplier selection to regulatory compliance and supply chain management. Every process is built on precision, transparency, and stability, so the final product retains the highest quality.',
       cols: [
         { title: 'Quality standards', body: 'Our suppliers operate under EU-GMP or equivalent certification; every shipment is checked at intake.' },
         { title: 'Regulatory compliance', body: 'Full documentation aligned with Georgian regulatory standards — from import licensing to pharmacovigilance reporting.' },
@@ -224,8 +224,8 @@ export const homeT: Record<Lang, HomeT> = {
     },
     partners: {
       eyebrow: '06 — For partners',
-      headline: 'Become our partner',
-      lead: 'For pharmacies, pharmacy chains, hospitals, and clinical centres — tell us what you need and we will consolidate it into a single supply line.',
+      headline: 'Become Our Partner',
+      lead: "For pharmaceutical companies, pharmacy chains, hospitals, and clinical centers, we offer flexible and reliable collaboration. Tell us your needs and we'll design a unified, stable, and uninterrupted supply scheme tailored to your operational requirements.",
       cta: 'Send a request',
     },
     news: {
@@ -288,8 +288,8 @@ export const homeT: Record<Lang, HomeT> = {
     },
     quality: {
       eyebrow: '05 — Качество и соответствие',
-      headline: 'Качество начинается на заводе, а не на складе',
-      lead: 'Наши операционные принципы работают на каждом этапе — от выбора поставщика до регуляторной отчётности и логистики.',
+      headline: 'Качество начинается на производстве, а не на складе',
+      lead: 'Наши операционные стандарты обеспечивают строгий контроль на каждом этапе — от выбора поставщика до регуляторного соответствия и управления логистической цепочкой. Каждый процесс построен на точности, прозрачности и стабильности, чтобы конечный продукт сохранил высочайшее качество.',
       cols: [
         { title: 'Стандарты качества', body: 'Наши поставщики работают по EU-GMP или эквивалентной сертификации; каждая партия проходит входной контроль.' },
         { title: 'Регуляторное соответствие', body: 'Полный пакет документов в соответствии со стандартами Грузии — от импортной лицензии до фармаконадзора.' },
@@ -299,7 +299,7 @@ export const homeT: Record<Lang, HomeT> = {
     partners: {
       eyebrow: '06 — Для партнёров',
       headline: 'Станьте нашим партнёром',
-      lead: 'Для аптек, аптечных сетей, больниц и клинических центров — сообщите нам, что вам нужно, и мы соберём это в одну поставку.',
+      lead: 'Фармацевтическим компаниям, аптечным сетям, больницам и клиническим центрам мы предлагаем гибкое и надёжное сотрудничество. Расскажите о ваших потребностях, и мы разработаем единую, стабильную и непрерывную схему поставок, адаптированную к вашим операционным требованиям.',
       cta: 'Отправить запрос',
     },
     news: {
@@ -362,8 +362,8 @@ export const homeT: Record<Lang, HomeT> = {
     },
     quality: {
       eyebrow: '05 — Qualidade e conformidade',
-      headline: 'Qualidade começa na fábrica, não no armazém',
-      lead: 'Nossos princípios operacionais atuam em cada ponto de controle — desde a seleção do fornecedor até relatórios regulatórios e logística.',
+      headline: 'A Qualidade Começa na Produção, Não no Armazém',
+      lead: 'Os nossos padrões operacionais garantem um controlo rigoroso em cada etapa — desde a seleção de fornecedores até à conformidade regulamentar e à gestão da cadeia logística. Cada processo é construído sobre precisão, transparência e estabilidade, para que o produto final mantenha a qualidade mais elevada.',
       cols: [
         { title: 'Padrões de qualidade', body: 'Nossos fornecedores operam sob certificação EU-GMP ou equivalente; cada remessa é verificada na entrada.' },
         { title: 'Conformidade regulatória', body: 'Documentação completa alinhada aos padrões regulatórios georgianos — da licença de importação à farmacovigilância.' },
@@ -372,8 +372,8 @@ export const homeT: Record<Lang, HomeT> = {
     },
     partners: {
       eyebrow: '06 — Para parceiros',
-      headline: 'Torne-se nosso parceiro',
-      lead: 'Para farmácias, redes de farmácias, hospitais e centros clínicos — diga-nos do que você precisa e consolidamos em uma única linha de suprimento.',
+      headline: 'Torne-se Nosso Parceiro',
+      lead: 'Para empresas farmacêuticas, redes de farmácias, hospitais e centros clínicos, oferecemos uma colaboração flexível e confiável. Conte-nos as suas necessidades e desenharemos um esquema de abastecimento unificado, estável e ininterrupto, adaptado aos seus requisitos operacionais.',
       cta: 'Enviar solicitação',
     },
     news: {

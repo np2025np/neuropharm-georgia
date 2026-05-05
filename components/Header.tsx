@@ -4,12 +4,14 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { type Lang, LANGS, homeT } from '@/lib/i18n';
+import { features } from '@/lib/features';
 import { BrainMark } from './icons';
 import { ThemeToggle } from './ThemeToggle';
 
 type NavId = 'home' | 'about' | 'services' | 'sourcing' | 'quality' | 'news' | 'contact';
 
-const NAV_IDS: NavId[] = ['home', 'about', 'services', 'sourcing', 'quality', 'news', 'contact'];
+const ALL_NAV_IDS: NavId[] = ['home', 'about', 'services', 'sourcing', 'quality', 'news', 'contact'];
+const NAV_IDS: NavId[] = ALL_NAV_IDS.filter((id) => id !== 'news' || features.news);
 
 function hrefFor(lang: Lang, id: NavId): string {
   switch (id) {
