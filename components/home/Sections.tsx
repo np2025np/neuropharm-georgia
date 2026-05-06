@@ -69,11 +69,7 @@ export function Services({ t, lang }: { t: HomeT; lang: Lang }) {
           <div className="icon-wrap"><ContainerRoute size={32} /></div>
           <h3>{t.services.tier1.title}</h3>
           <p>{t.services.tier1.body}</p>
-          <Link
-            className="more"
-            href={`/${lang}/services`}
-            aria-label={`${t.services.tier1.more}: ${t.services.tier1.title}`}
-          >
+          <Link className="more" href={`/${lang}/services`}>
             {t.services.tier1.more} <ArrowRight size={14} />
           </Link>
         </article>
@@ -82,11 +78,7 @@ export function Services({ t, lang }: { t: HomeT; lang: Lang }) {
           <div className="icon-wrap"><Network size={32} /></div>
           <h3>{t.services.tier2.title}</h3>
           <p>{t.services.tier2.body}</p>
-          <Link
-            className="more"
-            href={`/${lang}/services`}
-            aria-label={`${t.services.tier2.more}: ${t.services.tier2.title}`}
-          >
+          <Link className="more" href={`/${lang}/services`}>
             {t.services.tier2.more} <ArrowRight size={14} />
           </Link>
         </article>

@@ -118,12 +118,12 @@ export const homeT: Record<Lang, HomeT> = {
       tier1: {
         num: 'სერვისი 01', title: 'იმპორტი საბაჟომდე',
         body: 'ჩვენ ვუზრუნველვყოფთ მომწოდებელთა მოძიებას, კონტრაქტირებას, მიწოდებას საქართველოს საბაჟომდე და სრულ დოკუმენტაციას. შემდგომი დისტრიბუცია რჩება თქვენი გუნდის ხელში.',
-        more: 'გაიგე მეტი',
+        more: 'გაიგე მეტი — იმპორტი საბაჟომდე',
       },
       tier2: {
         num: 'სერვისი 02', title: 'იმპორტი + დისტრიბუცია',
         body: 'ბოლომდე გადახურული მომსახურება — საწყობირება, ცივი ჯაჭვი, რეგიონული ლოგისტიკა და გაყიდვები ფარმაციებსა და საავადმყოფოებზე საქართველოს მასშტაბით.',
-        more: 'გაიგე მეტი',
+        more: 'გაიგე მეტი — იმპორტი + დისტრიბუცია',
       },
     },
     sourcing: {
@@ -197,8 +197,8 @@ export const homeT: Record<Lang, HomeT> = {
       eyebrow: '02 — Our services',
       headline: 'Two service tiers, one quality standard',
       lead: 'Choose the model that fits your operations — logistics to customs, or full in-country distribution.',
-      tier1: { num: 'Service 01', title: 'Import to customs', body: 'We handle supplier sourcing, contracting, delivery to Georgian customs, and full documentation. Onward distribution stays with your team.', more: 'Learn more' },
-      tier2: { num: 'Service 02', title: 'Import + distribution', body: 'End-to-end service — warehousing, cold chain, regional logistics, and direct sales to pharmacies and hospitals across Georgia.', more: 'Learn more' },
+      tier1: { num: 'Service 01', title: 'Import to customs', body: 'We handle supplier sourcing, contracting, delivery to Georgian customs, and full documentation. Onward distribution stays with your team.', more: 'Learn more about import to customs' },
+      tier2: { num: 'Service 02', title: 'Import + distribution', body: 'End-to-end service — warehousing, cold chain, regional logistics, and direct sales to pharmacies and hospitals across Georgia.', more: 'Learn more about import + distribution' },
     },
     sourcing: {
       eyebrow: '03 — Global network',
@@ -271,8 +271,8 @@ export const homeT: Record<Lang, HomeT> = {
       eyebrow: '02 — Наши услуги',
       headline: 'Два уровня сотрудничества, один стандарт качества',
       lead: 'Выберите модель, соответствующую вашей операционной структуре — логистика до таможни или полная дистрибуция по стране.',
-      tier1: { num: 'Услуга 01', title: 'Импорт до таможни', body: 'Мы обеспечиваем поиск поставщиков, заключение договоров, доставку до грузинской таможни и полный комплект документации. Дистрибуция остаётся за вашей командой.', more: 'Узнать больше' },
-      tier2: { num: 'Услуга 02', title: 'Импорт + дистрибуция', body: 'Услуга «под ключ» — складирование, холодовая цепь, региональная логистика и прямые продажи аптекам и больницам по всей Грузии.', more: 'Узнать больше' },
+      tier1: { num: 'Услуга 01', title: 'Импорт до таможни', body: 'Мы обеспечиваем поиск поставщиков, заключение договоров, доставку до грузинской таможни и полный комплект документации. Дистрибуция остаётся за вашей командой.', more: 'Узнать больше об импорте до таможни' },
+      tier2: { num: 'Услуга 02', title: 'Импорт + дистрибуция', body: 'Услуга «под ключ» — складирование, холодовая цепь, региональная логистика и прямые продажи аптекам и больницам по всей Грузии.', more: 'Узнать больше об импорте и дистрибуции' },
     },
     sourcing: {
       eyebrow: '03 — Глобальная сеть',
@@ -345,8 +345,8 @@ export const homeT: Record<Lang, HomeT> = {
       eyebrow: '02 — Nossos serviços',
       headline: 'Dois níveis de serviço, um padrão de qualidade',
       lead: 'Escolha o modelo que se ajusta à sua operação — logística até a alfândega ou distribuição completa no país.',
-      tier1: { num: 'Serviço 01', title: 'Importação até a alfândega', body: 'Cuidamos da seleção de fornecedores, contratação, entrega à alfândega georgiana e documentação completa. A distribuição posterior fica com sua equipe.', more: 'Saiba mais' },
-      tier2: { num: 'Serviço 02', title: 'Importação + distribuição', body: 'Serviço de ponta a ponta — armazenagem, cadeia de frio, logística regional e vendas diretas a farmácias e hospitais em toda a Geórgia.', more: 'Saiba mais' },
+      tier1: { num: 'Serviço 01', title: 'Importação até a alfândega', body: 'Cuidamos da seleção de fornecedores, contratação, entrega à alfândega georgiana e documentação completa. A distribuição posterior fica com sua equipe.', more: 'Saiba mais sobre importação até a alfândega' },
+      tier2: { num: 'Serviço 02', title: 'Importação + distribuição', body: 'Serviço de ponta a ponta — armazenagem, cadeia de frio, logística regional e vendas diretas a farmácias e hospitais em toda a Geórgia.', more: 'Saiba mais sobre importação + distribuição' },
     },
     sourcing: {
       eyebrow: '03 — Rede global',
