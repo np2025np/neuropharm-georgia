@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { homeT, isLang, type Lang } from '@/lib/i18n';
 import { features } from '@/lib/features';
+import { ScrollReveal } from '@/components/ScrollReveal';
 import {
   HomeHero,
   TrustStrip,
@@ -21,12 +22,12 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
     <>
       <HomeHero t={t} lang={typed} />
       <TrustStrip t={t} />
-      <Services t={t} lang={typed} />
-      <SourcingSection t={t} />
-      <AboutPreview t={t} lang={typed} />
-      <QualityBand t={t} />
-      <PartnersCTA t={t} lang={typed} />
-      {features.news && <NewsGrid t={t} />}
+      <ScrollReveal><Services t={t} lang={typed} /></ScrollReveal>
+      <ScrollReveal><SourcingSection t={t} /></ScrollReveal>
+      <ScrollReveal><AboutPreview t={t} lang={typed} /></ScrollReveal>
+      <ScrollReveal><QualityBand t={t} /></ScrollReveal>
+      <ScrollReveal><PartnersCTA t={t} lang={typed} /></ScrollReveal>
+      {features.news && <ScrollReveal><NewsGrid t={t} /></ScrollReveal>}
     </>
   );
 }

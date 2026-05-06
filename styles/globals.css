@@ -505,3 +505,28 @@ a:hover { color: var(--accent); }
   max-width: 38ch;
   margin: 0;
 }
+
+/* Scroll reveal — paired with components/ScrollReveal.tsx.
+   Sections start hidden; ScrollReveal client component adds .is-visible
+   on first intersection. prefers-reduced-motion users skip the animation
+   entirely (and also see content immediately even if JS hasn't run yet,
+   thanks to the media-query override). */
+.np-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 600ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.np-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  will-change: auto;
+}
+@media (prefers-reduced-motion: reduce) {
+  .np-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
