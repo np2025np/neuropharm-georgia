@@ -3,7 +3,7 @@ import { BracketedEyebrow } from '@/components/Primitives';
 import { PageHero } from '@/components/PageHero';
 import { PageBanner } from '@/components/PageBanner';
 import { Check } from '@/components/icons';
-import { WorldMap } from '@/components/visuals/WorldMap';
+import { GeoWorldMap } from '@/components/visuals/GeoWorldMap';
 import { BANNER_SUBTITLES, PAGE_TITLES } from '@/lib/seo';
 
 type SourcingT = PagesT['sourcing'];
@@ -15,7 +15,7 @@ function SourcingHeroMap({ pT, t }: { pT: SourcingT; t: HomeT }) {
     <section className="np-section" data-screen-label="01 Map">
       <div className="np-sourcing-frame">
         <span className="corner-mark">SOURCING · 02 REGIONS</span>
-        <WorldMap regionAName={t.sourcing.regionA} regionBName={t.sourcing.regionB} />
+        <GeoWorldMap regionAName={t.sourcing.regionA} regionBName={t.sourcing.regionB} />
         <div className="np-sourcing-caption">
           <span>{pT.mapCaption}</span>
         </div>

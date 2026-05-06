@@ -1,10 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, type MouseEvent } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { type Lang, homeT } from '@/lib/i18n';
 import { features, enabledLocales } from '@/lib/features';
+import { useScrollspy } from '@/lib/hooks/useScrollspy';
 import { BrainMark } from './icons';
 import { ThemeToggle } from './ThemeToggle';
 
@@ -22,12 +23,33 @@ const LANG_NATIVE: Record<Lang, string> = {
   pt: 'Português',
 };
 
-function hrefFor(lang: Lang, id: NavId): string {
+/**
+ * Section IDs to observe for scrollspy on the home page.
+ * DOM order matters — useScrollspy returns the *topmost* visible ID.
+ *
+ * 'partners' is observed but mapped to no nav item (returns null), so the
+ * Partners CTA scrolling into view clears the nav highlight as desired.
+ */
+const HOME_SCROLLSPY_IDS = ['home', 'services', 'sourcing', 'about', 'quality', 'partners', 'news'] as const;
+
+/** Mapping section-id -> nav-id. Sections not in this map yield no highlight. */
+const SECTION_TO_NAV: Partial<Record<string, NavId>> = {
+  home: 'home',
+  about: 'about',
+  services: 'services',
+  sourcing: 'sourcing',
+  quality: 'quality',
+};
+
+/** Nav IDs whose home-page click should smooth-scroll instead of navigating. */
+const SCROLL_NAV_IDS: ReadonlySet<NavId> = new Set(['home', 'about', 'services', 'sourcing', 'quality']);
+
+function hrefFor(lang: Lang, id: NavId, isHome: boolean): string {
   switch (id) {
     case 'home': return `/${lang}#home`;
-    case 'about': return `/${lang}/about`;
-    case 'services': return `/${lang}/services`;
-    case 'sourcing': return `/${lang}/sourcing`;
+    case 'about': return isHome ? `/${lang}#about` : `/${lang}/about`;
+    case 'services': return isHome ? `/${lang}#services` : `/${lang}/services`;
+    case 'sourcing': return isHome ? `/${lang}#sourcing` : `/${lang}/sourcing`;
     case 'quality': return `/${lang}#quality`;
     case 'news': return `/${lang}#news`;
     case 'contact': return `/${lang}/contact`;
@@ -48,7 +70,31 @@ export function Header({ lang }: { lang: Lang }) {
   const t = homeT[lang];
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  const currentPage = pageIdFromPath(pathname, lang);
+  const isHome = pathname === `/${lang}`;
+
+  const activeSection = useScrollspy(HOME_SCROLLSPY_IDS, isHome);
+  const activeNav: NavId | null = isHome
+    ? (activeSection ? SECTION_TO_NAV[activeSection] ?? null : 'home')
+    : pageIdFromPath(pathname, lang);
+
+  /** On the home page, sections matching SCROLL_NAV_IDS are scrolled to instead
+   *  of navigated to. URL is updated via history.pushState so direct links
+   *  /[lang]#section still work and the back button keeps working too. */
+  const handleNavClick = (e: MouseEvent<HTMLAnchorElement>, id: NavId) => {
+    if (!isHome || !SCROLL_NAV_IDS.has(id)) return;
+    const targetId = id === 'home' ? 'home' : id;
+    const el = document.getElementById(targetId);
+    if (!el) return;
+    e.preventDefault();
+    setOpen(false);
+    const reduceMotion =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    el.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+    if (typeof window !== 'undefined') {
+      window.history.replaceState(null, '', `/${lang}#${targetId}`);
+    }
+  };
 
   return (
     <header className="np-header">
@@ -59,7 +105,12 @@ export function Header({ lang }: { lang: Lang }) {
         </Link>
         <nav className="np-nav np-nav-desktop" style={{ justifyContent: 'center' }}>
           {NAV_IDS.map((id) => (
-            <Link key={id} href={hrefFor(lang, id)} className={id === currentPage ? 'is-active' : ''}>
+            <Link
+              key={id}
+              href={hrefFor(lang, id, isHome)}
+              className={id === activeNav ? 'is-active' : ''}
+              onClick={(e) => handleNavClick(e, id)}
+            >
               {t.nav[id]}
             </Link>
           ))}
@@ -82,9 +133,12 @@ export function Header({ lang }: { lang: Lang }) {
           {NAV_IDS.map((id) => (
             <Link
               key={id}
-              href={hrefFor(lang, id)}
-              className={id === currentPage ? 'is-active' : ''}
-              onClick={() => setOpen(false)}
+              href={hrefFor(lang, id, isHome)}
+              className={id === activeNav ? 'is-active' : ''}
+              onClick={(e) => {
+                handleNavClick(e, id);
+                if (!e.defaultPrevented) setOpen(false);
+              }}
             >
               {t.nav[id]}
             </Link>

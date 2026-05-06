@@ -332,22 +332,63 @@
   color: var(--fg-subtle);
   text-transform: uppercase;
 }
-.np-sourcing-map { width: 100%; height: auto; max-height: 480px; }
-.np-sourcing-map .land { fill: var(--brand); opacity: 0.10; }
-:root[data-theme="dark"] .np-sourcing-map .land { fill: var(--brand); opacity: 0.32; }
-.np-sourcing-map .land-active { fill: var(--brand); opacity: 0.30; }
-:root[data-theme="dark"] .np-sourcing-map .land-active { fill: var(--brand); opacity: 0.55; }
-.np-sourcing-map .lat { stroke: var(--brand); opacity: 0.10; stroke-width: 0.5; fill: none; }
-.np-sourcing-map .pin-ring { fill: none; stroke: var(--accent); stroke-width: 1.5; opacity: 0.5; }
-.np-sourcing-map .pin-dot { fill: var(--accent); }
-.np-sourcing-map .pin-tether { stroke: var(--accent); stroke-width: 1; opacity: 0.6; fill: none; }
-.np-sourcing-map .pin-label {
+/* Geographic world map (react-simple-maps + world-atlas).
+   Replaces the old polygonal placeholder. Minimalist B2B style:
+   no internal borders, single light-grey continent fill, two coral
+   markers with a slow CSS pulse. */
+.np-geo-map-frame {
+  width: 100%;
+  position: relative;
+  min-height: 280px;
+}
+.np-geo-map-placeholder {
+  width: 100%;
+  aspect-ratio: 980 / 520;
+  background: var(--bg-sunken);
+  border-radius: 8px;
+}
+.np-geo-country {
+  fill: #D9D9D9;
+  stroke: none;
+  outline: none;
+  pointer-events: none;
+}
+:root[data-theme="dark"] .np-geo-country { fill: #2A4F4B; }
+
+/* Marker — outer ring pulses, inner dot stays solid. */
+.np-geo-marker-pulse {
+  fill: var(--np-coral-700);
+  opacity: 0.32;
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: np-geo-pulse 2.4s ease-in-out infinite;
+  pointer-events: none;
+}
+.np-geo-marker-dot {
+  fill: var(--np-coral-700);
+  stroke: var(--bg);
+  stroke-width: 2;
+}
+.np-geo-marker-tether {
+  stroke: var(--np-coral-700);
+  stroke-width: 1;
+  stroke-dasharray: 2 3;
+  opacity: 0.55;
+}
+.np-geo-marker-label {
   font-family: var(--font-sans);
   font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-weight: 700;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   fill: var(--fg);
+}
+@keyframes np-geo-pulse {
+  0%, 100% { opacity: 0.32; transform: scale(0.55); }
+  50%      { opacity: 0;    transform: scale(1.4); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .np-geo-marker-pulse { animation: none; opacity: 0.32; transform: scale(1); }
 }
 .np-sourcing-caption {
   margin-top: 24px;

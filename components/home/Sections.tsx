@@ -3,7 +3,7 @@ import type { HomeT, Lang } from '@/lib/i18n';
 import { BracketedEyebrow, Button } from '@/components/Primitives';
 import { ArrowRight, ContainerRoute, Network, Beaker, ClipboardCheck, Snowflake } from '@/components/icons';
 import { HeroVisualSupplyChain } from '@/components/visuals/HeroVisual';
-import { WorldMap } from '@/components/visuals/WorldMap';
+import { GeoWorldMap } from '@/components/visuals/GeoWorldMap';
 
 export function HomeHero({ t, lang }: { t: HomeT; lang: Lang }) {
   return (
@@ -97,7 +97,7 @@ export function SourcingSection({ t }: { t: HomeT }) {
       </div>
       <div className="np-sourcing-frame">
         <span className="corner-mark">SOURCING · 02 REGIONS</span>
-        <WorldMap regionAName={t.sourcing.regionA} regionBName={t.sourcing.regionB} />
+        <GeoWorldMap regionAName={t.sourcing.regionA} regionBName={t.sourcing.regionB} />
         <div className="np-sourcing-caption">
           <span className="badge">{t.sourcing.badge}</span>
           <span>{t.sourcing.caption}</span>
@@ -162,7 +162,7 @@ export function QualityBand({ t }: { t: HomeT }) {
 
 export function PartnersCTA({ t, lang }: { t: HomeT; lang: Lang }) {
   return (
-    <section className="np-partners-cta" data-screen-label="06 Partners CTA">
+    <section id="partners" className="np-partners-cta" data-screen-label="06 Partners CTA">
       <div className="np-partners-cta-inner">
         <BracketedEyebrow color="rgba(250,250,247,0.7)">{t.partners.eyebrow}</BracketedEyebrow>
         <h2>{t.partners.headline}</h2>
