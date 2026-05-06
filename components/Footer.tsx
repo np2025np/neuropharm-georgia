@@ -4,6 +4,13 @@ import { enabledLocales } from '@/lib/features';
 import { contact } from '@/lib/contact';
 import { BrainMark } from './icons';
 
+const LANG_NATIVE: Record<Lang, string> = {
+  ka: 'ქართული',
+  en: 'English',
+  ru: 'Русский',
+  pt: 'Português',
+};
+
 export function Footer({ lang }: { lang: Lang }) {
   const t = homeT[lang];
   return (
@@ -19,7 +26,7 @@ export function Footer({ lang }: { lang: Lang }) {
           <p className="desc">{t.footer.desc}</p>
         </div>
         <div>
-          <h4>{t.footer.quickLinks}</h4>
+          <h3>{t.footer.quickLinks}</h3>
           <ul>
             <li><Link href={`/${lang}/services`}>{t.nav.services}</Link></li>
             <li><Link href={`/${lang}/about`}>{t.nav.about}</Link></li>
@@ -29,7 +36,7 @@ export function Footer({ lang }: { lang: Lang }) {
           </ul>
         </div>
         <div>
-          <h4>{t.footer.contact}</h4>
+          <h3>{t.footer.contact}</h3>
           <ul>
             <li style={{ opacity: 0.85, fontFamily: 'var(--font-sans)', fontSize: 14, lineHeight: 1.6 }}>
               {contact.address[lang]}
@@ -39,7 +46,7 @@ export function Footer({ lang }: { lang: Lang }) {
           </ul>
         </div>
         <div>
-          <h4>{t.footer.legal}</h4>
+          <h3>{t.footer.legal}</h3>
           <ul>
             <li style={{ opacity: 0.85, fontFamily: 'var(--font-sans)', fontSize: 14 }}>
               {t.trust.license} {t.trust.licenseValue}
@@ -47,7 +54,14 @@ export function Footer({ lang }: { lang: Lang }) {
           </ul>
           <div className="np-lang" style={{ marginTop: 16, alignSelf: 'flex-start' }}>
             {enabledLocales.map((L) => (
-              <Link key={L} href={`/${L}`} className={lang === L ? 'is-on' : ''} prefetch={false}>
+              <Link
+                key={L}
+                href={`/${L}`}
+                className={lang === L ? 'is-on' : ''}
+                prefetch={false}
+                aria-label={LANG_NATIVE[L]}
+                lang={L}
+              >
                 {L.toUpperCase()}
               </Link>
             ))}

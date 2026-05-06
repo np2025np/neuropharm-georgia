@@ -19,7 +19,7 @@ export default async function ThankYou({ params }: { params: Promise<{ lang: str
   const sub = t.sub.replace('{phone}', contact.phone.display);
 
   return (
-    <main>
+    <>
       <PageHero eyebrow={t.eyebrow} headline={t.headline} sub={sub} />
       <section className="np-section np-thankyou-section">
         <div className="np-thankyou-actions">
@@ -32,6 +32,6 @@ export default async function ThankYou({ params }: { params: Promise<{ lang: str
           </Link>
         </div>
       </section>
-    </main>
+    </>
   );
 }

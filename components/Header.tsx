@@ -13,6 +13,15 @@ type NavId = 'home' | 'about' | 'services' | 'sourcing' | 'quality' | 'news' | '
 const ALL_NAV_IDS: NavId[] = ['home', 'about', 'services', 'sourcing', 'quality', 'news', 'contact'];
 const NAV_IDS: NavId[] = ALL_NAV_IDS.filter((id) => id !== 'news' || features.news);
 
+/** Native names — used as aria-labels on the language switcher pills so screen
+ *  readers say "ქართული" / "English" instead of just the 2-letter code. */
+const LANG_NATIVE: Record<Lang, string> = {
+  ka: 'ქართული',
+  en: 'English',
+  ru: 'Русский',
+  pt: 'Português',
+};
+
 function hrefFor(lang: Lang, id: NavId): string {
   switch (id) {
     case 'home': return `/${lang}#home`;
@@ -91,7 +100,14 @@ function DesktopLangs({ current }: { current: Lang }) {
   return (
     <div className="np-lang np-lang-desktop">
       {enabledLocales.map((L) => (
-        <Link key={L} href={`/${L}`} className={current === L ? 'is-on' : ''} prefetch={false}>
+        <Link
+          key={L}
+          href={`/${L}`}
+          className={current === L ? 'is-on' : ''}
+          prefetch={false}
+          aria-label={LANG_NATIVE[L]}
+          lang={L}
+        >
           {L.toUpperCase()}
         </Link>
       ))}
@@ -103,7 +119,15 @@ function MobileLangs({ current, onPick }: { current: Lang; onPick: () => void })
   return (
     <div className="np-mobile-langs">
       {enabledLocales.map((L) => (
-        <Link key={L} href={`/${L}`} className={current === L ? 'is-on' : ''} onClick={onPick} prefetch={false}>
+        <Link
+          key={L}
+          href={`/${L}`}
+          className={current === L ? 'is-on' : ''}
+          onClick={onPick}
+          prefetch={false}
+          aria-label={LANG_NATIVE[L]}
+          lang={L}
+        >
           {L.toUpperCase()}
         </Link>
       ))}

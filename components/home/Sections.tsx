@@ -9,14 +9,16 @@ export function HomeHero({ t, lang }: { t: HomeT; lang: Lang }) {
   return (
     <section id="home" className="np-home-hero" data-screen-label="01 Hero">
       <picture className="np-home-hero-bg">
-        <source media="(max-width: 767px)" srcSet="/hero-bg-mobile.jpg" />
+        <source media="(max-width: 767px)" srcSet="/hero-bg-mobile.webp" type="image/webp" />
+        <source media="(max-width: 767px)" srcSet="/hero-bg-mobile.jpg" type="image/jpeg" />
+        <source srcSet="/hero-bg.webp" type="image/webp" />
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/hero-bg.jpg" alt="" fetchPriority="high" decoding="async" />
       </picture>
       <div className="np-home-hero-overlay" />
       <div className="np-home-hero-grid">
         <div>
-          <BracketedEyebrow color="var(--accent)">{t.hero.eyebrow}</BracketedEyebrow>
+          <BracketedEyebrow color="var(--accent-text)">{t.hero.eyebrow}</BracketedEyebrow>
           <h1>{t.hero.headline}</h1>
           <p className="lead">{t.hero.lead}</p>
           <div className="np-home-hero-cta">
@@ -57,7 +59,7 @@ export function Services({ t, lang }: { t: HomeT; lang: Lang }) {
   return (
     <section id="services" className="np-section" data-screen-label="02 Services">
       <div className="np-section-head">
-        <BracketedEyebrow color="var(--accent)">{t.services.eyebrow}</BracketedEyebrow>
+        <BracketedEyebrow color="var(--accent-text)">{t.services.eyebrow}</BracketedEyebrow>
         <h2>{t.services.headline}</h2>
         <p>{t.services.lead}</p>
       </div>
@@ -67,7 +69,11 @@ export function Services({ t, lang }: { t: HomeT; lang: Lang }) {
           <div className="icon-wrap"><ContainerRoute size={32} /></div>
           <h3>{t.services.tier1.title}</h3>
           <p>{t.services.tier1.body}</p>
-          <Link className="more" href={`/${lang}/services`}>
+          <Link
+            className="more"
+            href={`/${lang}/services`}
+            aria-label={`${t.services.tier1.more}: ${t.services.tier1.title}`}
+          >
             {t.services.tier1.more} <ArrowRight size={14} />
           </Link>
         </article>
@@ -76,7 +82,11 @@ export function Services({ t, lang }: { t: HomeT; lang: Lang }) {
           <div className="icon-wrap"><Network size={32} /></div>
           <h3>{t.services.tier2.title}</h3>
           <p>{t.services.tier2.body}</p>
-          <Link className="more" href={`/${lang}/services`}>
+          <Link
+            className="more"
+            href={`/${lang}/services`}
+            aria-label={`${t.services.tier2.more}: ${t.services.tier2.title}`}
+          >
             {t.services.tier2.more} <ArrowRight size={14} />
           </Link>
         </article>
@@ -89,7 +99,7 @@ export function SourcingSection({ t }: { t: HomeT }) {
   return (
     <section id="sourcing" className="np-section" data-screen-label="03 Sourcing">
       <div className="np-section-head">
-        <BracketedEyebrow color="var(--accent)">{t.sourcing.eyebrow}</BracketedEyebrow>
+        <BracketedEyebrow color="var(--accent-text)">{t.sourcing.eyebrow}</BracketedEyebrow>
         <h2>{t.sourcing.headline}</h2>
         <p>{t.sourcing.lead}</p>
       </div>
@@ -110,7 +120,7 @@ export function AboutPreview({ t, lang }: { t: HomeT; lang: Lang }) {
     <section id="about" className="np-section" data-screen-label="04 About">
       <div className="np-about-preview">
         <div>
-          <BracketedEyebrow color="var(--accent)">{t.about.eyebrow}</BracketedEyebrow>
+          <BracketedEyebrow color="var(--accent-text)">{t.about.eyebrow}</BracketedEyebrow>
           <h2>{t.about.headline}</h2>
           <p>{t.about.p1}</p>
           <p>{t.about.p2}</p>
@@ -178,7 +188,7 @@ export function NewsGrid({ t }: { t: HomeT }) {
   return (
     <section id="news" className="np-section" data-screen-label="07 News">
       <div className="np-section-head">
-        <BracketedEyebrow color="var(--accent)">{t.news.eyebrow}</BracketedEyebrow>
+        <BracketedEyebrow color="var(--accent-text)">{t.news.eyebrow}</BracketedEyebrow>
         <h2>{t.news.headline}</h2>
         <p>{t.news.lead}</p>
       </div>

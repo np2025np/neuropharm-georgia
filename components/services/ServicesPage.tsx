@@ -101,12 +101,12 @@ function ServicesCTA({ pT, lang }: { pT: ServicesT['cta']; lang: Lang }) {
 
 export function ServicesPage({ pT, labels, lang }: { pT: ServicesT; labels: Labels; lang: Lang }) {
   return (
-    <main>
+    <>
       <PageHero eyebrow={pT.eyebrow} headline={pT.headline} sub={pT.sub} />
       <ServiceTier pT={pT.tier1} labels={labels} icon={<ContainerRoute size={28} />} />
       <ServiceTier pT={pT.tier2} labels={labels} icon={<Network size={28} />} reverse />
       <ServicesCompare pT={pT.compare} />
       <ServicesCTA pT={pT.cta} lang={lang} />
-    </main>
+    </>
   );
 }

@@ -49,7 +49,8 @@
 
   --fg:           var(--np-ink);
   --fg-muted:     var(--np-stone-600);
-  --fg-subtle:    var(--np-stone-400);
+  /* Was np-stone-400 (#8A8A82, 3.33:1) — failed WCAG AA. #6A6A63 = 5.21:1. */
+  --fg-subtle:    #6A6A63;
   --fg-on-brand:  var(--np-paper);
   --fg-inverse:   var(--np-paper);
 
@@ -60,6 +61,10 @@
   --accent:       var(--np-coral-500);
   --accent-hover: var(--np-coral-600);
   --accent-soft:  var(--np-coral-50);
+  /* Coral-500 as text on paper bg = 2.97:1 (fails AA). Use coral-700 (5.52:1)
+     for actual text/link contexts; --accent stays coral-500 for button
+     backgrounds, borders, icon fills where contrast pairs differently. */
+  --accent-text:  var(--np-coral-700);
 
   --border:       var(--np-stone-100);
   --border-strong: var(--np-stone-200);
@@ -93,6 +98,9 @@
   --accent:       var(--np-coral-500);
   --accent-hover: var(--np-coral-400);
   --accent-soft:  #2A1A12;
+  /* On dark teal bg, coral-500 already passes (5.50:1), but coral-400 reads
+     more energetically and clears 6.6:1 — used for text-context links. */
+  --accent-text:  var(--np-coral-400);
 
   --border:       #1A3936;
   --border-strong: #2A4F4B;
@@ -225,7 +233,7 @@ a {
   text-underline-offset: 3px;
   transition: color var(--transition-fast);
 }
-a:hover { color: var(--accent); }
+a:hover { color: var(--accent-text); }
 
 .eyebrow {
   font-family: var(--font-sans);
@@ -233,7 +241,7 @@ a:hover { color: var(--accent); }
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: var(--tracking-wider);
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .eyebrow-bracketed {
@@ -375,8 +383,8 @@ a:hover { color: var(--accent); }
   transition: color var(--transition-fast);
 }
 :root[data-theme="dark"] .np-nav a { color: var(--fg); opacity: 0.92; }
-.np-nav a:hover { color: var(--accent); }
-.np-nav a.is-active { color: var(--accent); }
+.np-nav a:hover { color: var(--accent-text); }
+.np-nav a.is-active { color: var(--accent-text); }
 .np-nav a.is-active::after {
   content: "";
   position: absolute;
@@ -475,7 +483,7 @@ a:hover { color: var(--accent); }
   grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 48px;
 }
-.np-footer h4 {
+.np-footer h3 {
   font-family: var(--font-sans);
   font-size: 12px;
   font-weight: 600;
@@ -493,7 +501,7 @@ a:hover { color: var(--accent); }
   font-size: 14px;
   opacity: 0.85;
 }
-.np-footer ul a:hover { opacity: 1; color: var(--accent); }
+.np-footer ul a:hover { opacity: 1; color: var(--accent-text); }
 .np-footer-brand .lockup {
   display: flex; align-items: center; gap: 12px; color: inherit; margin-bottom: 18px;
 }

@@ -9,7 +9,7 @@ type ContactT = PagesT['contact'];
 export function ContactInfo({ t, lang }: { t: ContactT; lang: Lang }) {
   return (
     <aside className="np-contact-info">
-      <h3>{t.info.title}</h3>
+      <h2>{t.info.title}</h2>
       <dl>
         <div>
           <dt>{t.info.addressLabel}</dt>
@@ -57,6 +57,7 @@ export function OfficeMap({ caption, openLabel }: { caption: string; openLabel: 
         href={MAP_OPEN_HREF}
         target="_blank"
         rel="noopener noreferrer"
+        aria-label={`${openLabel}: Kipshidze St 5A, Tbilisi`}
       >
         {openLabel} →
       </a>
@@ -66,7 +67,7 @@ export function OfficeMap({ caption, openLabel }: { caption: string; openLabel: 
 
 export function ContactPage({ pT, lang }: { pT: ContactT; lang: Lang }) {
   return (
-    <main>
+    <>
       <PageHero eyebrow={pT.eyebrow} headline={pT.headline} sub={pT.sub} />
       <section className="np-section np-contact-section" data-screen-label="01 Form + Info">
         <div className="np-contact-grid">
@@ -79,6 +80,6 @@ export function ContactPage({ pT, lang }: { pT: ContactT; lang: Lang }) {
           <OfficeMap caption={pT.mapCaption} openLabel={pT.openInMaps} />
         </section>
       </ScrollReveal>
-    </main>
+    </>
   );
 }

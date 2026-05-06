@@ -13,7 +13,7 @@ function AboutStory({ pT }: { pT: AboutT }) {
     <section className="np-section" data-screen-label="01 Story">
       <div className="np-about-story">
         <div className="head">
-          <BracketedEyebrow color="var(--accent)">{pT.story.eyebrow}</BracketedEyebrow>
+          <BracketedEyebrow color="var(--accent-text)">{pT.story.eyebrow}</BracketedEyebrow>
           <h2>{pT.story.title}</h2>
         </div>
         <div className="body">
@@ -30,7 +30,7 @@ function AboutMission({ pT, lang }: { pT: AboutT; lang: Lang }) {
   return (
     <section className="np-section" data-screen-label="02 Mission">
       <div className="np-section-head">
-        <BracketedEyebrow color="var(--accent)">{pT.mission.eyebrow}</BracketedEyebrow>
+        <BracketedEyebrow color="var(--accent-text)">{pT.mission.eyebrow}</BracketedEyebrow>
         <h2>{pT.mission.title}</h2>
         <p>{pT.mission.body}</p>
       </div>
@@ -75,7 +75,7 @@ function AboutVision({ pT }: { pT: AboutT['vision'] }) {
     <section className="np-section" data-screen-label="04 Vision">
       <div className="np-vision">
         <div className="head">
-          <BracketedEyebrow color="var(--accent)">{pT.eyebrow}</BracketedEyebrow>
+          <BracketedEyebrow color="var(--accent-text)">{pT.eyebrow}</BracketedEyebrow>
           <h2>{pT.title}</h2>
         </div>
         <p className="body">{pT.body}</p>
@@ -89,7 +89,7 @@ function AboutLeadership({ pT }: { pT: AboutT['leadership'] }) {
   return (
     <section className="np-section" data-screen-label="05 Leadership">
       <div className="np-section-head">
-        <BracketedEyebrow color="var(--accent)">{pT.eyebrow}</BracketedEyebrow>
+        <BracketedEyebrow color="var(--accent-text)">{pT.eyebrow}</BracketedEyebrow>
         <h2>{pT.title}</h2>
         <p>{pT.sub}</p>
       </div>
@@ -120,7 +120,7 @@ function ComplianceTable({ pT }: { pT: AboutT['compliance'] }) {
   return (
     <section className="np-section" data-screen-label="06 Compliance">
       <div className="np-section-head">
-        <BracketedEyebrow color="var(--accent)">{pT.eyebrow}</BracketedEyebrow>
+        <BracketedEyebrow color="var(--accent-text)">{pT.eyebrow}</BracketedEyebrow>
         <h2>{pT.title}</h2>
       </div>
       <div className="np-compliance-table">
@@ -137,15 +137,15 @@ function ComplianceTable({ pT }: { pT: AboutT['compliance'] }) {
 
 export function AboutPage({ pT, lang }: { pT: AboutT; lang: Lang }) {
   return (
-    <main>
+    <>
       <PageBanner title={PAGE_TITLES.about[lang]} subtitle={BANNER_SUBTITLES.about?.[lang]} />
-      <PageHero eyebrow={pT.eyebrow} headline={pT.headline} sub={pT.sub} />
+      <PageHero eyebrow={pT.eyebrow} headline={pT.headline} sub={pT.sub} as="h2" />
       <AboutStory pT={pT} />
       <AboutMission pT={pT} lang={lang} />
       <FoundedCallout pT={pT.foundedCallout} />
       <AboutVision pT={pT.vision} />
       <AboutLeadership pT={pT.leadership} />
       <ComplianceTable pT={pT.compliance} />
-    </main>
+    </>
   );
 }

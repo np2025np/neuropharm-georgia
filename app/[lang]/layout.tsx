@@ -34,7 +34,7 @@ export default async function LangLayout({
   return (
     <>
       <Header lang={typedLang} />
-      {children}
+      <main id="main-content">{children}</main>
       <Footer lang={typedLang} />
     </>
   );

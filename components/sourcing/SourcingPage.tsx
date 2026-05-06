@@ -38,7 +38,7 @@ function SourcingRegion({
     <section className={`np-region-block ${reverse ? 'is-reverse' : ''}`}>
       <div className="np-region-inner">
         <div className="copy">
-          <BracketedEyebrow color="var(--accent)">{pT.eyebrow}</BracketedEyebrow>
+          <BracketedEyebrow color="var(--accent-text)">{pT.eyebrow}</BracketedEyebrow>
           <h2>{pT.title}</h2>
           <p>{pT.body}</p>
           <p>{pT.body2}</p>
@@ -71,7 +71,7 @@ function SourcingFutureNote({ pT }: { pT: SourcingT['future'] }) {
           <span className="dot" />
         </div>
         <div>
-          <h3>{pT.title}</h3>
+          <h2>{pT.title}</h2>
           <p>{pT.body}</p>
         </div>
       </div>
@@ -91,13 +91,13 @@ export function SourcingPage({
   lang: Lang;
 }) {
   return (
-    <main>
+    <>
       <PageBanner title={PAGE_TITLES.sourcing[lang]} subtitle={BANNER_SUBTITLES.sourcing?.[lang]} />
-      <PageHero eyebrow={pT.eyebrow} headline={pT.headline} sub={pT.sub} />
+      <PageHero eyebrow={pT.eyebrow} headline={pT.headline} sub={pT.sub} as="h2" />
       <SourcingHeroMap pT={pT} t={t} />
       <SourcingRegion pT={pT.regionA} labels={labels} />
       <SourcingRegion pT={pT.regionB} labels={labels} reverse />
       <SourcingFutureNote pT={pT.future} />
-    </main>
+    </>
   );
 }
