@@ -89,6 +89,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        {/* Without JS, ScrollReveal can't add .is-visible — show wrapped sections immediately. */}
+        <noscript>
+          <style
+            dangerouslySetInnerHTML={{
+              __html: '.np-reveal{opacity:1!important;transform:none!important;transition:none!important;}',
+            }}
+          />
+        </noscript>
       </head>
       <body>
         {children}
