@@ -190,32 +190,48 @@ img.np-page-banner-img {
 .np-contact-info dd a { color: var(--accent); text-decoration: none; }
 .np-contact-info dd a:hover { text-decoration: underline; }
 
+/* Thank-you page */
+.np-thankyou-section {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 96px;
+}
+.np-thankyou-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+@media (max-width: 560px) {
+  .np-thankyou-actions { flex-direction: column; align-items: stretch; width: 100%; max-width: 320px; }
+}
+
 .np-contact-mapsec { padding-top: 0; }
-.np-map-frame {
-  position: relative;
-  border: 1px solid var(--border);
+.np-office-map {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.np-office-map-iframe {
+  width: 100%;
+  height: 380px;
+  border: 1px solid rgba(31, 79, 74, 0.18);
   border-radius: var(--radius-md);
   background: var(--bg-sunken);
-  overflow: hidden;
-  color: var(--fg);
+  display: block;
 }
-.np-map-frame .corner-mark {
-  position: absolute; top: 12px; left: 14px;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  color: var(--fg-muted);
-  z-index: 2;
+.np-office-map-link {
+  align-self: flex-start;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--transition-fast);
 }
-.np-map-frame svg { display: block; width: 100%; aspect-ratio: 600 / 380; }
-.np-map-caption {
-  position: absolute; bottom: 14px; left: 14px;
-  font-family: var(--font-mono);
-  font-size: 12px;
-  color: var(--fg-muted);
-  background: color-mix(in oklab, var(--bg), transparent 30%);
-  padding: 6px 10px;
-  border-radius: var(--radius-sm);
+.np-office-map-link:hover { color: var(--accent); text-decoration: underline; }
+@media (max-width: 720px) {
+  .np-office-map-iframe { height: 280px; }
 }
 
 /* ABOUT */

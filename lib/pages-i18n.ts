@@ -25,6 +25,7 @@ export const pagesT: Record<Lang, PagesT> = {
         licenseLabel: 'ლიცენზია', license: '№438739260',
       },
       mapCaption: 'რუკა — თბილისი',
+      openInMaps: 'გახსენი Google Maps-ში',
     },
     about: {
       eyebrow: 'ჩვენ შესახებ',
@@ -171,6 +172,13 @@ export const pagesT: Record<Lang, PagesT> = {
       },
       future: { title: 'მომავალი ფუნქცია', body: 'ინტერაქტიული რუკით — დააწექი რეგიონს და ნახე ხელმისაწვდომი მედიკამენტების სრული კატალოგი ბათჩის და სერტიფიცირების დეტალებით.' },
     },
+    thankYou: {
+      eyebrow: 'მადლობა',
+      headline: 'შეტყობინება მიღებულია',
+      sub: 'ჩვენ გიპასუხებთ 1–2 სამუშაო დღის განმავლობაში. გადაუდებელი შემთხვევებისთვის დაგვიკავშირდით ნომერზე {phone}.',
+      backHome: 'მთავარ გვერდზე დაბრუნება',
+      seeServices: 'ჩვენი სერვისები',
+    },
   },
   en: {
     labels: { process: 'Process', included: 'Included', countries: 'Countries', certifications: 'Certifications' },
@@ -195,6 +203,7 @@ export const pagesT: Record<Lang, PagesT> = {
         licenseLabel: 'License', license: '№438739260',
       },
       mapCaption: 'Map — Tbilisi',
+      openInMaps: 'Open in Google Maps',
     },
     about: {
       eyebrow: 'About us', headline: 'Pharmaceutical Reliability with a Georgian Team',
@@ -340,6 +349,13 @@ export const pagesT: Record<Lang, PagesT> = {
       },
       future: { title: 'Future feature', body: 'Interactive map — click a region to see the full catalogue of available medications with batch and certification details.' },
     },
+    thankYou: {
+      eyebrow: 'Thank you',
+      headline: 'Message received',
+      sub: 'We respond within 1–2 business days. For urgent inquiries, call {phone}.',
+      backHome: 'Back to home',
+      seeServices: 'Our services',
+    },
   },
   ru: {
     labels: { process: 'Процесс', included: 'Входит в услугу', countries: 'Страны', certifications: 'Сертификации' },
@@ -364,6 +380,7 @@ export const pagesT: Record<Lang, PagesT> = {
         licenseLabel: 'Лицензия', license: '№438739260',
       },
       mapCaption: 'Карта — Тбилиси',
+      openInMaps: 'Открыть в Google Maps',
     },
     about: {
       eyebrow: 'О нас', headline: 'Фармацевтическая надёжность с грузинской командой',
@@ -509,6 +526,13 @@ export const pagesT: Record<Lang, PagesT> = {
       },
       future: { title: 'Будущая функция', body: 'Интерактивная карта — нажмите на регион, чтобы увидеть полный каталог доступных лекарств с деталями партий и сертификации.' },
     },
+    thankYou: {
+      eyebrow: 'Спасибо',
+      headline: 'Сообщение получено',
+      sub: 'Мы отвечаем в течение 1–2 рабочих дней. По срочным вопросам звоните {phone}.',
+      backHome: 'Вернуться на главную',
+      seeServices: 'Наши услуги',
+    },
   },
   pt: {
     labels: { process: 'Processo', included: 'Incluído', countries: 'Países', certifications: 'Certificações' },
@@ -533,6 +557,7 @@ export const pagesT: Record<Lang, PagesT> = {
         licenseLabel: 'Licença', license: '№438739260',
       },
       mapCaption: 'Mapa — Tbilisi',
+      openInMaps: 'Abrir no Google Maps',
     },
     about: {
       eyebrow: 'Sobre nós', headline: 'Confiabilidade Farmacêutica com Equipa Georgiana',
@@ -677,6 +702,13 @@ export const pagesT: Record<Lang, PagesT> = {
         ],
       },
       future: { title: 'Recurso futuro', body: 'Mapa interativo — clique em uma região para ver o catálogo completo de medicamentos disponíveis com detalhes de lote e certificação.' },
+    },
+    thankYou: {
+      eyebrow: 'Obrigado',
+      headline: 'Mensagem recebida',
+      sub: 'Respondemos no prazo de 1–2 dias úteis. Para questões urgentes, ligue para {phone}.',
+      backHome: 'Voltar ao início',
+      seeServices: 'Nossos serviços',
     },
   },
 };

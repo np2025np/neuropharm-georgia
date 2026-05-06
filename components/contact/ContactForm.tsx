@@ -1,15 +1,17 @@
 'use client';
 
 import { useRef, useState, type FormEvent } from 'react';
-import type { PagesT } from '@/lib/i18n';
+import { useRouter } from 'next/navigation';
+import type { Lang, PagesT } from '@/lib/i18n';
 import { ArrowRight } from '@/components/icons';
 
 type ContactFormT = PagesT['contact']['form'];
-type Status = 'idle' | 'submitting' | 'success' | 'error';
+type Status = 'idle' | 'submitting' | 'error';
 
-export function ContactForm({ t }: { t: ContactFormT }) {
+export function ContactForm({ t, lang }: { t: ContactFormT; lang: Lang }) {
   const [status, setStatus] = useState<Status>('idle');
   const formRef = useRef<HTMLFormElement>(null);
+  const router = useRouter();
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -38,8 +40,7 @@ export function ContactForm({ t }: { t: ContactFormT }) {
         setStatus('error');
         return;
       }
-      setStatus('success');
-      form.reset();
+      router.push(`/${lang}/thank-you`);
     } catch {
       setStatus('error');
     }
@@ -97,7 +98,6 @@ export function ContactForm({ t }: { t: ContactFormT }) {
           {submitting ? t.submitting : t.submit}
           <span className="np-btn-icon"><ArrowRight /></span>
         </button>
-        {status === 'success' && <span className="form-msg form-msg-success">{t.success}</span>}
         {status === 'error' && <span className="form-msg form-msg-error">{t.error}</span>}
       </div>
     </form>

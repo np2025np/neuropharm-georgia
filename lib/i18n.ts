@@ -48,6 +48,7 @@ export type PagesT = {
       hoursLabel: string; hours: string; licenseLabel: string; license: string;
     };
     mapCaption: string;
+    openInMaps: string;
   };
   about: {
     eyebrow: string; headline: string; sub: string;
@@ -84,6 +85,13 @@ export type PagesT = {
       certifications: string[]; points: string[];
     };
     future: { title: string; body: string };
+  };
+  thankYou: {
+    eyebrow: string;
+    headline: string;
+    sub: string;
+    backHome: string;
+    seeServices: string;
   };
 };
 
